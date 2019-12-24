@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
+  margin: 0 auto;
+  width: 852px;
+  height: 100%;
   font-family: 'Helvetica Neue';
 }
