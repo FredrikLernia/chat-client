@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.Main {
+  display: inline-block;
+  width: calc(7.5 * #{$col-size});
+  height: 100%;
+  vertical-align: top;
+  background-color: #F7F7F7;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+}
