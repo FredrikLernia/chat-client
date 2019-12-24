@@ -1,17 +1,18 @@
 import React from 'react'
 import './style.scss'
 
-const Avatar = props => {
-  const { size, color } = props
+// Temporary user object
+const user = require('../../json/user.json')
 
+const Avatar = props => {
   const style = {
-    size: size ? ' ' + size : '',
-    color: color ? ' ' + color : ''
+    size: props.size ? ' ' + props.size : '',
+    color: user.colorTheme ? ' ' + user.colorTheme : ''
   }
 
   return (
     <div className={`Avatar${style.size}${style.color}`}>
-      <span>FS</span>
+      <span>{user.firstName[0] + user.lastName[0]}</span>
     </div>
   )
 }

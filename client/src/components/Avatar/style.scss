@@ -2,15 +2,16 @@
 
 .Avatar {
   display: inline-block;
-  width: 63px;
-  height: 63px;
-  line-height: 63px;
-  font-size: 23px;
+  width: 100%;
+  padding-top: 100%;
+  line-height: 100%;
+  /* font-size: 23px; */
+  font-size: 50%;
   border-radius: 50%;
-  background-color: #AAA;
+  background-color: $default-color;
   text-align: center;
 
-  &.sm {
+  /* &.sm {
     width: 54px;
     height: 54px;
     line-height: 54px;
@@ -29,7 +30,7 @@
     height: 80px;
     line-height: 80px;
     font-size: 29px;
-  }
+  } */
 
   &.yellow {
     background-color: $yellow;
@@ -48,6 +49,8 @@
   }
 
   span {
+    height: 100%;
+    line-height: 100%;
     color: $text-light;
   }
 }
