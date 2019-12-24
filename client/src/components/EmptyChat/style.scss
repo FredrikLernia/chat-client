@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.EmptyChat {
+  height: 100%;
+  text-align: center;
+  color: #D1D1D1;
+
+  div {
+    padding-top: 50%;
+    vertical-align: middle;
+
+    svg {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
