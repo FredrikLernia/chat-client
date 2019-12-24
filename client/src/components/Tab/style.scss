@@ -2,7 +2,7 @@
 
 .Tab {
   display: inline-block;
-  width: calc(4 * #{$col-size});
+  width: calc(3.5 * #{$col-size});
   height: 100%;
   vertical-align: top;
 }
