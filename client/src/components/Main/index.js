@@ -1,9 +1,13 @@
 import React from 'react'
 import './style.scss'
 
+import EmptyChat from '../EmptyChat'
+
 const Main = () => {
   return (
-    <div className="Main"></div>
+    <div className="Main">
+      <EmptyChat />
+    </div>
   )
 }
 

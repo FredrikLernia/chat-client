@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -5,12 +7,14 @@
 body {
   margin: 0;
   height: 100vh;
+  color: $text-dark-2;
 }
 
 h2 {
   margin: 15px;
   font-size: 15px;
   font-weight: bold;
+  color: $text-dark-1;
 }
 
 #root {
