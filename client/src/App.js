@@ -1,5 +1,5 @@
 import React from 'react'
-/* import './reset.css' */
+import './reset.css'
 import './style.scss'
 import LoggedIn from './views/LoggedIn'
 
