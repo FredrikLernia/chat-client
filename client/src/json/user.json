@@ -1,6 +1,54 @@
 {
-  "username": "fredrik",
-  "firstName": "Fredrik",
-  "lastName": "Sunding",
-  "colorTheme": "blue"
+  "username": "kalle",
+  "firstName": "Kalle",
+  "lastName": "Anka",
+  "colorTheme": "blue",
+  "friends": [
+    {
+      "firstName": "Musse",
+      "lastName": "Pigg",
+      "colorTheme": "yellow",
+      "messages": [
+        {
+          "time": "11:45",
+          "message": "Donec a nunc bibendum, condimentum nunc at, scelerisque erat. Curabitur vitae venenatis mauris. Proin blandit a erat vel efficitur. Nam.",
+          "sent": false
+        }
+      ]
+    },
+    {
+      "firstName": "Kajsa",
+      "lastName": "Anka",
+      "colorTheme": "green",
+      "messages": [
+        {
+          "time": "10:04",
+          "message": "Curabitur egestas dignissim quam, ut semper augue pellentesque imperdiet. Vestibulum vehicula dui a luctus tincidunt. Proin metus diam, elementum vitae maximus ac, consectetur a est. Aenean metus dolor, placerat vitae.",
+          "sent": false
+        },
+        {
+          "time": "10:45",
+          "message": "Donec a nunc bibendum, condimentum nunc at, scelerisque erat. Curabitur vitae venenatis mauris. Proin blandit a erat vel efficitur. Nam.",
+          "sent": true
+        },
+        {
+          "time": "11:16",
+          "message": "Sed sit amet varius orci. Aliquam et arcu ultrices, egestas arcu vel, iaculis sem. Etiam.",
+          "sent": false
+        }
+      ]
+    },
+    {
+      "firstName": "Jan",
+      "lastName": "Långben",
+      "colorTheme": "red",
+      "messages": [
+        {
+          "time": "09.34",
+          "message": "Vestibulum consectetur ipsum eu felis pretium molestie. Fusce scelerisque pellentesque leo in dapibus. Sed.",
+          "sent": true
+        }
+      ]
+    }
+  ]
 }
