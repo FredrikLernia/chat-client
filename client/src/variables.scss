@@ -1,4 +1,6 @@
-$col-size: 71px;
+$app-width: 996px;
+
+$col-size: calc(#{$app-width} / 12);
 
 $default-color: #AAA;
 $yellow: #D9BE5D;
