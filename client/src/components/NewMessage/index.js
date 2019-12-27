@@ -14,13 +14,16 @@ const NewMessage = () => {
   }
 
   return (
-    <div className="NewMessage">
-      <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
-      <form onSubmit={onSubmit}>
-        <textarea rows="4" placeholder="Type a message..." />
-        <button type="submit">Send<Send /></button>
-      </form>
-    </div>
+    <>
+      <div className="typing">Kajsa is typing<span>.</span><span>.</span><span>.</span></div>
+      <div className="NewMessage">
+        <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
+        <form onSubmit={onSubmit}>
+          <textarea rows="4" placeholder="Type a message..." />
+          <button type="submit">Send<Send /></button>
+        </form>
+      </div>
+    </>
   )
 }
 
