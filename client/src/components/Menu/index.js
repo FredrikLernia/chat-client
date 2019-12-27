@@ -4,6 +4,7 @@ import './style.scss'
 
 /* import Avatar from '../Avatar' */
 
+const { tab } = require('../../json/page.json')
 const user = require('../../json/user.json')
 
 const Menu = () => {
@@ -12,13 +13,13 @@ const Menu = () => {
       {/* <div className="menu-item">
         <Avatar />
       </div> */}
-      <div className="menu-item">
+      <div className={tab === 'chats' ? 'menu-item active' : 'menu-item'}>
         <MessageSquare />
       </div>
-      <div className="menu-item">
+      <div className={tab === 'friends' ? 'menu-item active' : 'menu-item'}>
         <Users />
       </div>
-      <div className="menu-item">
+      <div className={tab === 'active' ? 'menu-item active' : 'menu-item'}>
         <Settings />
       </div>
       <div className="space" />

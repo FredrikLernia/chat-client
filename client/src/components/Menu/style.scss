@@ -30,7 +30,10 @@
   .menu-item {
     &:hover {
       cursor: pointer;
-      background-color: $hover-color;
+    }
+
+    &.active {
+      background-color: $active-color;
     }
 
     svg {
@@ -38,6 +41,11 @@
       height: 100%;
       padding: 17px;
       color: $text-light;
+      transition: color 300ms;
+
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }
