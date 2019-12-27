@@ -2,12 +2,17 @@ $app-width: 996px;
 
 $col-size: calc(#{$app-width} / 12);
 
+$font-family: 'Helvetica Neue';
+$font-size: 13px;
+
 $default-color: #AAA;
 $yellow: #D9BE5D;
 $green: #9AC099;
 $red: #CE6163;
 $blue: #75AEBF;
 $orange: #D8905A;
+
+$app-green: #23B873;
 
 $text-light: #F5F5F5;
 $text-dark-1: #393939;

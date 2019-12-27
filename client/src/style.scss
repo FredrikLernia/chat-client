@@ -7,7 +7,7 @@
 body {
   margin: 0;
   height: 100vh;
-  font-size: 12px;
+  font-size: $font-size;
   color: $text-dark-2;
 }
 
@@ -32,5 +32,5 @@ h4 {
   margin: 0 auto;
   width: $app-width;
   height: 100%;
-  font-family: 'Helvetica Neue';
+  font-family: $font-family;
 }
