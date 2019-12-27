@@ -20,9 +20,8 @@ const NewFriend = () => {
       return
     }
 
-    const foundSearch = friends.filter(friend => {
+    const foundSearch = friends.filter(({ username, firstName, lastName }) => {
       val = val.toLowerCase()
-      const { username, firstName, lastName } = friend
 
       return (
         username.toLowerCase().startsWith(val) ||
