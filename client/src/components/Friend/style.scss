@@ -1,0 +1,26 @@
+@import '../../variables.scss';
+
+.Friend {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  cursor: pointer;
+
+  h4 {
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+      color: $danger;
+    }
+  }
+}
