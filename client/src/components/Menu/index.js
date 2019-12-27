@@ -1,5 +1,5 @@
 import React from 'react'
-import { MessageSquare, Users, Settings } from 'react-feather'
+import { MessageSquare, Users, Settings, Power } from 'react-feather'
 import './style.scss'
 
 /* import Avatar from '../Avatar' */
@@ -20,6 +20,10 @@ const Menu = () => {
       </div>
       <div className="menu-item">
         <Settings />
+      </div>
+      <div className="space" />
+      <div className="menu-item">
+        <Power />
       </div>
     </div>
   )

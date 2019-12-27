@@ -73,6 +73,7 @@ button {
 }
 
 .App {
+  display: flex;
   margin: 0 auto;
   width: $app-width;
   height: 100%;
