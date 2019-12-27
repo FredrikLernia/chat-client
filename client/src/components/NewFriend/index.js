@@ -21,12 +21,14 @@ const NewFriend = () => {
     }
 
     const foundSearch = friends.filter(({ username, firstName, lastName }) => {
-      val = val.toLowerCase()
+      val = val.toLowerCase().replace(/\s/g, '')
+
+      console.log(val)
 
       return (
         username.toLowerCase().startsWith(val) ||
-        firstName.toLowerCase().startsWith(val) ||
-        lastName.toLowerCase().startsWith(val)
+        (firstName.toLowerCase() + lastName.toLowerCase()).startsWith(val) ||
+        (lastName.toLowerCase() + firstName.toLowerCase()).startsWith(val)
       )
     })
 
@@ -39,7 +41,7 @@ const NewFriend = () => {
 
   return (
     <div className="NewFriend">
-      <label htmlFor="friends-search">Add new friend</label>
+      <label htmlFor="friends-search">Add Friend</label>
       <input
         type="search"
         id="friends-search"
