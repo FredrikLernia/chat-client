@@ -1,0 +1,33 @@
+import React from 'react'
+import './style.scss'
+
+import Avatar from '../Avatar'
+
+const Message = props => {
+  const { userInitials, friendInitials, userColor, friendColor, message } = props
+  const { time, text, sent } = message
+
+  if (sent) {
+    return (
+      <div className="Message right">
+        <div className="content">
+          <p className="time">{time}</p>
+          <p className="text sent">{text}</p>
+        </div>
+        <Avatar size="sm" color={userColor} initials={userInitials} />
+      </div>
+    )
+  }
+
+  return (
+    <div className="Message left">
+      <Avatar size="sm" color={friendColor} initials={friendInitials} />
+      <div className="content">
+        <p className="time">{time}</p>
+        <p className="text">{text}</p>
+      </div>
+    </div>
+  )
+}
+
+export default Message

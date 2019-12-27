@@ -1,0 +1,56 @@
+@import '../../variables.scss';
+
+.Message {
+  display: flex;
+  align-items: flex-end;
+  /* margin-bottom: 30px; */
+  padding: 25px;
+  width: 100%;
+
+  &.left {
+    justify-content: right;
+
+    .content {
+      margin-left: 12px;
+      margin-right: 60px;
+
+      .time {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &.right {
+    .content {
+      margin-right: 12px;
+      margin-left: 60px;
+
+      .time {
+        margin-right: 10px;
+        text-align: right;
+      }
+    }
+  }
+
+  .content {
+    .text {
+      padding: 15px;
+      min-height: 40px;
+      line-height: 15px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.16);
+
+      &.sent {
+        background-color: $app-green;
+        color: $text-light;
+      }
+    }
+
+    .time {
+      margin-bottom: 7px;
+      font-size: 10px;
+      color: $text-dark-3;
+    }
+  }
+}
