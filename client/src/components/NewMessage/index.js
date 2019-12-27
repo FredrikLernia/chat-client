@@ -10,6 +10,7 @@ const NewMessage = () => {
   const { firstName, lastName, colorTheme } = user
 
   const onSubmit = e => {
+    e.preventDefault()
     console.log('submit')
   }
 
