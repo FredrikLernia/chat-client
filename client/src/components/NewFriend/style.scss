@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.NewFriend {
+  padding: 15px;
+
+  input {
+    margin-bottom: 0;
+  }
+
+  .results {
+    border: 1px solid $border-color;
+
+    .found-friend {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      .content {
+        flex: 1;
+        margin-right: 10px;
+        margin-left: 10px;
+
+        .username {
+          color: $text-dark-3;
+        }
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
