@@ -6,6 +6,7 @@
   "online": true,
   "friends": [
     {
+      "username": "musse",
       "firstName": "Musse",
       "lastName": "Pigg",
       "colorTheme": "yellow",
@@ -19,6 +20,7 @@
       ]
     },
     {
+      "username": "kajsa",
       "firstName": "Kajsa",
       "lastName": "Anka",
       "colorTheme": "green",
@@ -38,25 +40,11 @@
           "time": "11:16",
           "text": "Sed sit amet varius orci. Aliquam et arcu ultrices, egestas arcu vel, iaculis sem. Etiam.",
           "sent": false
-        },
-        {
-          "time": "10:04",
-          "text": "Curabitur egestas dignissim quam, ut semper augue pellentesque imperdiet. Vestibulum vehicula dui a luctus tincidunt. Proin metus diam, elementum vitae maximus ac, consectetur a est. Aenean metus dolor, placerat vitae.",
-          "sent": false
-        },
-        {
-          "time": "10:45",
-          "text": "Donec a nunc bibendum, condimentum nunc at, scelerisque erat. Curabitur vitae venenatis mauris. Proin blandit a erat vel efficitur. Nam.",
-          "sent": true
-        },
-        {
-          "time": "11:16",
-          "text": "Sed sit amet varius orci. Aliquam et arcu ultrices, egestas arcu vel, iaculis sem. Etiam.",
-          "sent": false
         }
       ]
     },
     {
+      "username": "janne",
       "firstName": "Jan",
       "lastName": "Långben",
       "colorTheme": "red",
@@ -66,6 +54,20 @@
           "time": "09.34",
           "text": "Vestibulum consectetur ipsum eu felis pretium molestie. Fusce scelerisque pellentesque leo in dapibus. Sed.",
           "sent": true
+        }
+      ]
+    },
+    {
+      "username": "mimmi",
+      "firstName": "Mimmi",
+      "lastName": "Pigg",
+      "colorTheme": "blue",
+      "online": false,
+      "messages": [
+        {
+          "time": "18.49",
+          "text": "Quisque auctor nisl malesuada ante tincidunt, a venenatis tortor malesuada. Nam gravida accumsan augue, vel ornare arcu sodales ut. In cursus non dolor vitae ullamcorper.",
+          "sent": false
         }
       ]
     }
