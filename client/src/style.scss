@@ -19,9 +19,53 @@ h2 {
 }
 
 h4 {
-  font-size: 13px;
+  font-size: $font-size;
   font-weight: bold;
   color: $text-dark-1;
+}
+
+input, textarea, button {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+input, textarea {
+  color: $text-dark-2;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: $text-dark-1;
+}
+
+input {
+  display: block;
+  margin-bottom: 15px;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $border-color;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px $blue;
+  }
+}
+
+button {
+  padding: 8px;
+  background-color: $blue;
+  color: $text-light;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 #root {
