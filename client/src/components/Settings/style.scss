@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.Settings {
+  .form {
+    padding: 15px;
+    border-bottom: 1px solid $border-color;
+
+    &.delete {
+      button {
+        background-color: $danger;
+      }
+    }
+
+    h4 {
+      margin-bottom: 12px;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
+}
