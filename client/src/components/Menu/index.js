@@ -14,7 +14,7 @@ const Menu = () => {
   const onMenuClick = tab => setTab(tab)
 
   return (
-    <nav className={user.colorTheme ? `Menu ${user.colorTheme}` : 'Menu'}>
+    <nav className={user.colorTheme ? `Menu bg-${user.colorTheme}` : 'Menu'}>
       {/* <div className="menu-item">
         <Avatar />
       </div> */}

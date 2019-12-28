@@ -5,23 +5,6 @@
   flex-direction: column;
   width: calc(0.8 * #{$col-size});
   height: 100%;
-  background-color: $default-color;
-
-  &.yellow {
-    background-color: $yellow;
-  }
-  
-  &.green {
-    background-color: $green;
-  }
-
-  &.red {
-    background-color: $red;
-  }
-
-  &.blue {
-    background-color: $blue;
-  }
 
   .space {
     flex: 1;

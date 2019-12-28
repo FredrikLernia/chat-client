@@ -4,24 +4,7 @@
   display: flex;
   align-items: center;
   border-radius: 50%;
-  background-color: $default-color;
   text-align: center;
-
-  &.yellow {
-    background-color: $yellow;
-  }
-  
-  &.green {
-    background-color: $green;
-  }
-
-  &.red {
-    background-color: $red;
-  }
-
-  &.blue {
-    background-color: $blue;
-  }
 
   span {
     width: 63px;

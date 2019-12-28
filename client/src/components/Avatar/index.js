@@ -4,7 +4,7 @@ import './style.scss'
 const Avatar = props => {
   const style = {
     size: props.size ? ' ' + props.size : '',
-    color: props.color ? ' ' + props.color : ''
+    color: props.color ? ' bg-' + props.color : ''
   }
 
   return (
