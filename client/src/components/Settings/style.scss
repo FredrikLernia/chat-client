@@ -5,6 +5,48 @@
     padding: 15px;
     border-bottom: 1px solid $border-color;
 
+    .color-picker {
+      display: flex;
+      padding: 8px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid $border-color;
+      cursor: pointer;
+
+      .color {
+        flex: 1;
+        height: 15px;
+      }
+
+      svg {
+        margin-left: 8px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .color-list-relative {
+      position: relative;
+
+      .color-list {
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid $border-color;
+  
+        .color {
+          margin: 15px;
+          height: 25px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .update-account {
+      margin-top: 15px;
+    }
+
     &.delete {
       button {
         background-color: $danger;

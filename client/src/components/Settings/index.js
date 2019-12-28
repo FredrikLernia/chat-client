@@ -1,13 +1,17 @@
 import React, { useState, useContext } from 'react'
+import { ChevronDown } from 'react-feather'
 import './style.scss'
 
 import UserContext from '../../context/UserContext'
 
 const Settings = () => {
   const { user } = useContext(UserContext)
-  const { username, firstName, lastName } = user
+  const { username, firstName, lastName, colorTheme } = user
 
   const [inputs, setInputs] = useState({ username, firstName, lastName })
+  const [color, setColor] = useState(colorTheme)
+  const [pickerOpen, setPickerOpen] = useState(false)
+  const colors = ['yellow', 'green', 'red', 'blue', 'orange', 'wine', 'purple']
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
 
@@ -21,8 +25,27 @@ const Settings = () => {
         <label htmlFor="lastName">Last Name</label>
         <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
         <label htmlFor="colorTheme">Color Theme</label>
-        <select></select>
-        <button>Update Account</button>
+        <div className="color-picker" onClick={() => setPickerOpen(!pickerOpen)}>
+          <div className={`color bg-${color}`}></div>
+          <ChevronDown />
+        </div>
+        <div className="color-list-relative">
+          {pickerOpen ?
+            <div className="color-list">
+              {colors.map((color, i) => (
+                <div
+                  key={i}
+                  className={`color bg-${color}`}
+                  onClick={() => {
+                    setColor(color)
+                    setPickerOpen(false)
+                  }}
+                />
+              ))}
+            </div>
+            : ''}
+        </div>
+        <button className="update-account">Update Account</button>
       </div>
       <div className="password form">
         <h4>Change Password</h4>
