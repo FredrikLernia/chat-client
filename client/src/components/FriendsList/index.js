@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import UserContext from '../../context/UserContext'
 
 import Friend from '../Friend/index.js'
 
-const { friends } = require('../../json/user.json')
-
 const FriendsList = () => {
+  const { user } = useContext(UserContext)
+
   return (
     <div className="FriendsList">
-      {friends.map((friend, i) => (
-        <Friend key={i} friend={friend} />
-      ))}
+      {user.friends.map((friend, i) => <Friend key={i} friend={friend} />)}
     </div>
   )
 }

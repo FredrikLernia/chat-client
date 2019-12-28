@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './style.scss'
+
+import UserContext from '../../context/UserContext'
+import PageContext from '../../context/PageContext'
 
 import Message from '../Message'
 
-const user = require('../../json/user.json')
-
 const Messages = () => {
-  const friend = user.friends[1]
+  const { user } = useContext(UserContext)
+  const { friend } = useContext(PageContext)
 
   const userInitials = user.firstName[0] + user.lastName[0]
   const friendInitials = friend.firstName[0] + friend.lastName[0]

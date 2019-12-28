@@ -14,9 +14,11 @@ const Tab = () => {
   return (
     <div className="Tab">
       <TabHeader />
-      {tab === 'chats' ? <ChatList /> : ''}
-      {tab === 'friends' ? <Friends /> : ''}
-      {tab === 'settings' ? <Settings /> : ''}
+      <div className="content">
+        {tab === 'chats' ? <ChatList /> : ''}
+        {tab === 'friends' ? <Friends /> : ''}
+        {tab === 'settings' ? <Settings /> : ''}
+      </div>
     </div>
   )
 }

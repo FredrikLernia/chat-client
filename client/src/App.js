@@ -1,19 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './reset.css'
 import './style.scss'
 
-import PageContext from './context/PageContext'
+import userData from './json/user.json'
+import UserContext from './context/UserContext'
 
 import LoggedIn from './views/LoggedIn'
+import LoggedOut from './views/LoggedOut'
 
 const App = () => {
-  const [tab, setTab] = useState('chats')
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    setUser(userData)
+  }, [])
+
+  if (user) {
+    return (
+      <div className="App">
+        <UserContext.Provider value={{ user }}>
+          <LoggedIn />
+        </UserContext.Provider>
+      </div>
+    )
+  }
 
   return (
     <div className="App">
-      <PageContext.Provider value={{ tab, setTab }}>
-        <LoggedIn />
-      </PageContext.Provider>
+      <UserContext.Provider value={{ setUser }}>
+        <LoggedOut />
+      </UserContext.Provider>
     </div>
   )
 }

@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { MessageSquare, Users, Settings, Power } from 'react-feather'
 import './style.scss'
 
+import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
 /* import Avatar from '../Avatar' */
 
-const user = require('../../json/user.json')
-
 const Menu = () => {
+  const { user } = useContext(UserContext)
   const { tab, setTab } = useContext(PageContext)
 
   const onMenuClick = tab => setTab(tab)

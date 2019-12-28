@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Send } from 'react-feather'
 import './style.scss'
 
+import UserContext from '../../context/UserContext'
+import PageContext from '../../context/PageContext'
+
 import Avatar from '../Avatar'
 
-const user = require('../../json/user.json')
-
 const NewMessage = () => {
+  const { user } = useContext(UserContext)
+  const { friend } = useContext(PageContext)
+
   const { firstName, lastName, colorTheme } = user
 
   const onSubmit = e => {
@@ -16,7 +20,7 @@ const NewMessage = () => {
 
   return (
     <>
-      <div className="typing">Kajsa is typing<span>.</span><span>.</span><span>.</span></div>
+      <div className="typing">{friend.firstName} is typing<span>.</span><span>.</span><span>.</span></div>
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
