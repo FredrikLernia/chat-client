@@ -23,8 +23,6 @@ const NewFriend = () => {
     const foundSearch = friends.filter(({ username, firstName, lastName }) => {
       val = val.toLowerCase().replace(/\s/g, '')
 
-      console.log(val)
-
       return (
         username.toLowerCase().startsWith(val) ||
         (firstName.toLowerCase() + lastName.toLowerCase()).startsWith(val) ||

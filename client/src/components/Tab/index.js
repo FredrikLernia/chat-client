@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './style.scss'
 
+import PageContext from '../../context/PageContext'
+
 import TabHeader from '../TabHeader'
-/* import ChatList from '../ChatList' */
-/* import Settings from '../Settings' */
+import ChatList from '../ChatList'
 import Friends from '../Friends'
+import Settings from '../Settings'
 
 const Tab = () => {
+  const { tab } = useContext(PageContext)
+
   return (
     <div className="Tab">
       <TabHeader />
-      {/* <ChatList /> */}
-      {/* <Settings /> */}
-      <Friends />
+      {tab === 'chats' ? <ChatList /> : ''}
+      {tab === 'friends' ? <Friends /> : ''}
+      {tab === 'settings' ? <Settings /> : ''}
     </div>
   )
 }
