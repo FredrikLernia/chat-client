@@ -6,6 +6,11 @@
   align-items: center;
   border-bottom: 1px solid $border-color;
   cursor: pointer;
+  transition: background-color 150ms;
+
+  &.active {
+    background-color: #E0E0E0;
+  }
 
   .Avatar {
     margin: 10px;

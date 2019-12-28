@@ -63,10 +63,6 @@
       line-height: 15px;
       border: none;
 
-      &::placeholder {
-        color: $text-dark-3;
-      }
-
       &:focus {
         outline: none;
       }

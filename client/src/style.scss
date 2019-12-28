@@ -30,7 +30,9 @@ input, textarea, button {
 }
 
 input, textarea {
-  color: $text-dark-2;
+  &::placeholder {
+    color: $text-dark-3;
+  }
 }
 
 label {
@@ -45,6 +47,7 @@ input {
   margin-bottom: 15px;
   padding: 8px;
   width: 100%;
+  color: $text-dark-1;
   border-radius: 5px;
   border: 1px solid $border-color;
 
@@ -52,6 +55,10 @@ input {
     outline: none;
     box-shadow: 0 0 5px $blue;
   }
+}
+
+textarea {
+  color: $text-dark-2;
 }
 
 button {

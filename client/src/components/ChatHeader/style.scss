@@ -1,11 +1,14 @@
 @import '../../variables.scss';
 
 .ChatHeader {
+  display: flex;
+  align-items: center;
   padding: 10px;
   background-color: #fff;
   border-bottom: 1px solid $border-color;
 
   h2 {
+    flex: 1;
     display: flex;
     align-items: center;
 
@@ -16,6 +19,16 @@
       height: 7px;
       border-radius: 50%;
       background-color: rgb(28, 177, 105);
+    }
+  }
+
+  svg {
+    margin-right: 15px;
+    cursor: pointer;
+    transition: color 150ms;
+
+    &:hover {
+      color: $text-dark-1;
     }
   }
 }
