@@ -11,6 +11,13 @@ body {
   color: $text-dark-2;
 }
 
+h1 {
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  color: $text-dark-1;
+}
+
 h2 {
   padding: 15px;
   font-size: 15px;
@@ -63,7 +70,6 @@ textarea {
 
 button {
   padding: 8px;
-  background-color: $blue;
   color: $text-light;
   font-weight: bold;
   border-radius: 5px;
