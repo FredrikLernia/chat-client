@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.SignUp {
+  margin: auto auto;
+  padding: 15px;
+  width: calc(3.9 * #{$col-size});
+
+  button {
+    width: 100%;
+  }
+
+  p {
+    margin-top: 15px;
+    text-align: right;
+    color: $text-dark-3;
+
+    span {
+      color: $link-color;
+      cursor: pointer;
+    }
+  }
+}
