@@ -41,7 +41,22 @@
         },
         {
           "time": "11:16",
-          "text": "Sed sit amet varius orci. Aliquam et arcu ultrices, egestas arcu vel, iaculis sem. Etiam.",
+          "text": "Cras varius ornare egestas. Fusce non accumsan nisi. Morbi egestas enim eget eleifend porttitor. Aliquam scelerisque est eget tellus bibendum lacinia. In porttitor, leo et euismod fermentum, mauris odio tincidunt quam, sed malesuada neque magna.",
+          "sent": false
+        },
+        {
+          "time": "12:33",
+          "text": "Integer cursus finibus finibus. Pellentesque iaculis augue sem, vel lacinia dui interdum in. Mauris facilisis ullamcorper ex ut vehicula. Praesent massa tortor.",
+          "sent": true
+        },
+        {
+          "time": "13:11",
+          "text": "Mauris facilisis aliquam lacus, vitae eleifend ipsum lobortis sit amet. In.",
+          "sent": true
+        },
+        {
+          "time": "13:14",
+          "text": "Proin tristique ornare risus, a.",
           "sent": false
         }
       ]

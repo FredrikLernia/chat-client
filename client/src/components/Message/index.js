@@ -10,6 +10,7 @@ const Message = props => {
   if (sent) {
     return (
       <div className="Message right">
+        <div className="margin" />
         <div className="content">
           <p className="time">{time}</p>
           <p className="text sent">{text}</p>
@@ -26,6 +27,7 @@ const Message = props => {
         <p className="time">{time}</p>
         <p className="text">{text}</p>
       </div>
+      <div className="margin" />
     </div>
   )
 }

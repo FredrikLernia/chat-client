@@ -3,16 +3,16 @@
 .Message {
   display: flex;
   align-items: flex-end;
-  /* margin-bottom: 30px; */
   padding: 25px;
   width: 100%;
 
   &.left {
-    justify-content: right;
+    .margin {
+      margin-right: 60px;
+    }
 
     .content {
       margin-left: 12px;
-      margin-right: 60px;
 
       .time {
         margin-left: 10px;
@@ -21,9 +21,13 @@
   }
 
   &.right {
+    .margin {
+      margin-left: 60px;
+      flex: 1;
+    }
+
     .content {
       margin-right: 12px;
-      margin-left: 60px;
 
       .time {
         margin-right: 10px;
