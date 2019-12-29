@@ -13,6 +13,10 @@
       border: 1px solid $border-color;
       cursor: pointer;
 
+      &.open {
+        box-shadow: 0 0 5px $blue;
+      }
+
       .color {
         flex: 1;
         height: 15px;

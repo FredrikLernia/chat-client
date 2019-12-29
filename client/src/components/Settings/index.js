@@ -25,7 +25,7 @@ const Settings = () => {
         <label htmlFor="lastName">Last Name</label>
         <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
         <label htmlFor="colorTheme">Color Theme</label>
-        <div className="color-picker" onClick={() => setPickerOpen(!pickerOpen)}>
+        <div className={pickerOpen ? 'color-picker open' : 'color-picker'} onClick={() => setPickerOpen(!pickerOpen)}>
           <div className={`color bg-${color}`}></div>
           <ChevronDown />
         </div>
