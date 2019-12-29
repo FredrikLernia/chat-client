@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 
 import Avatar from '../Avatar'
 
 const Message = props => {
-  const { userInitials, friendInitials, userColor, friendColor, message } = props
+  const { userInitials, friendInitials, userColor, friendColor, message, scrollToBottom } = props
   const { time, text, sent } = message
+
+  useEffect(() => {
+    scrollToBottom()
+  })
 
   if (sent) {
     return (
