@@ -4,9 +4,11 @@ import './style.scss'
 import ColorPicker from '../ColorPicker'
 
 const SignUp = ({ changePage }) => {
-  const [inputs, setInputs] = useState({ username: '', firstName: '', lastName: '', password: '' })
+  const [inputs, setInputs] = useState({ username: '', firstName: '', lastName: '', colorTheme: 'blue', password: '' })
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
+
+  const onColorChange = color => setInputs({ ...inputs, colorTheme: color })
 
   const onSubmit = () => console.log(inputs)
 
@@ -19,7 +21,7 @@ const SignUp = ({ changePage }) => {
       <input type="text" id="firstName" value={inputs.firstName} onChange={onInputChange} />
       <label htmlFor="lastName">Last Name</label>
       <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
-      <ColorPicker />
+      <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
       <label htmlFor="password">Password</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
       <button className="update-account bg-blue" onClick={onSubmit}>Sign Up</button>

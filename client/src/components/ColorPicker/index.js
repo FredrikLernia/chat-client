@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { ChevronDown } from 'react-feather'
 import './style.scss'
 
-const ColorPicker = ({ colorTheme }) => {
-  const [color, setColor] = useState(colorTheme ? colorTheme : 'blue')
+const ColorPicker = ({ color, changeColor }) => {
   const [pickerOpen, setPickerOpen] = useState(false)
   const colors = ['yellow', 'green', 'red', 'blue', 'orange', 'wine', 'purple']
 
@@ -22,7 +21,7 @@ const ColorPicker = ({ colorTheme }) => {
                 key={i}
                 className={`color bg-${color}`}
                 onClick={() => {
-                  setColor(color)
+                  changeColor(color)
                   setPickerOpen(false)
                 }}
               />

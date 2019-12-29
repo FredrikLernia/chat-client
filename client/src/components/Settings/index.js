@@ -9,9 +9,13 @@ const Settings = () => {
   const { user } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
 
-  const [inputs, setInputs] = useState({ username, firstName, lastName })
+  const [inputs, setInputs] = useState({ username, firstName, lastName, colorTheme })
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
+
+  const onColorChange = color => setInputs({ ...inputs, colorTheme: color })
+
+  const onUpdateClick = () => console.log(inputs)
 
   return (
     <div className="Settings">
@@ -22,8 +26,8 @@ const Settings = () => {
         <input type="text" id="firstName" value={inputs.firstName} onChange={onInputChange} />
         <label htmlFor="lastName">Last Name</label>
         <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
-        <ColorPicker colorTheme={colorTheme} />
-        <button className={`update-account bg-${colorTheme}`}>Update Account</button>
+        <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
+        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Update Account</button>
       </div>
       <div className="password form">
         <h4>Change Password</h4>
