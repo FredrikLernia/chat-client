@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import Login from '../../components/Login'
+import SignUp from '../../components/SignUp'
 
 const LoggedOut = () => {
+  const [page, setPage] = useState('login')
+
   return (
-    <div>Hej</div>
+    <>
+      {page === 'login' ? <Login changePage={setPage} /> : <SignUp changePage={setPage} />}
+    </>
   )
 }
 
