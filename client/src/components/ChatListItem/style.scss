@@ -21,8 +21,11 @@
     overflow-x: hidden;
     white-space: nowrap;
 
-    h4, p {
+    h4 {
       display: flex;
+    }
+
+    h4, p {
       align-items: center;
       padding: 2px;
     }
