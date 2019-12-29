@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { UserMinus } from 'react-feather'
 import './style.scss'
 
+import PageContext from '../../context/PageContext'
+
 import Avatar from '../Avatar'
+import OnlineSymbol from '../OnlineSymbol'
 
 const Friend = props => {
-  const { firstName, lastName, colorTheme } = props.friend
+  const { setFriend } = useContext(PageContext)
+
+  const { firstName, lastName, colorTheme, online } = props.friend
 
   return (
     <div className="Friend">
-      <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
-      <h4>{lastName + ', ' + firstName}</h4>
-      <UserMinus />
+      <div className="change-chat" onClick={() => setFriend(props.friend)}>
+        <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
+        <h4>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h4>
+      </div>
+      <UserMinus onClick={() => console.log('delete')} />
     </div>
   )
 }

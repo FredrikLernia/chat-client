@@ -9,10 +9,16 @@
   padding-left: 15px;
   cursor: pointer;
 
-  h4 {
+  .change-chat {
     flex: 1;
-    margin-right: 10px;
-    margin-left: 10px;
+    display: flex;
+    
+    h4 {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
   }
 
   svg {

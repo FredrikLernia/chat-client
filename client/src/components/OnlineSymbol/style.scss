@@ -1,0 +1,15 @@
+.OnlineSymbol {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgb(28, 177, 105);
+
+  &.left {
+    margin-left: 5px;
+  }
+
+  &.right {
+    margin-right: 10px;
+  }
+}
