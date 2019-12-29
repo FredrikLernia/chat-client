@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.ColorPicker{
+  .color-picker {
+    display: flex;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+    cursor: pointer;
+  
+    &.open {
+      box-shadow: 0 0 5px $blue;
+    }
+  
+    .color {
+      flex: 1;
+      height: 15px;
+    }
+  
+    svg {
+      margin-left: 8px;
+      width: 15px;
+      height: 15px;
+    }
+  }
+  
+  .color-list-relative {
+    position: relative;
+    margin-bottom: 15px;
+  
+    .color-list {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid $border-color;
+  
+      .color {
+        margin: 15px;
+        height: 25px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+    }
+  }
+}
