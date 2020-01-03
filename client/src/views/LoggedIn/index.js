@@ -8,10 +8,11 @@ import Main from '../../components/Main'
 
 const LoggedIn = () => {
   const [tab, setTab] = useState('chats')
+  const [friendView, setFriendView] = useState('list')
   const [pageFriendship, setPageFriendship] = useState(null)
 
   return (
-    <PageContext.Provider value={{ tab, setTab, pageFriendship, setPageFriendship }}>
+    <PageContext.Provider value={{ tab, setTab, pageFriendship, setPageFriendship, friendView, setFriendView }}>
       <Menu />
       <Tab />
       <Main />

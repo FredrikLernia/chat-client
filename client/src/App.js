@@ -15,12 +15,7 @@ const App = () => {
       const loggedInRaw = await fetch('/api/login')
       const loggedIn = await loggedInRaw.json()
 
-      if (typeof loggedIn === 'object') {
-        setUser(loggedIn)
-      }
-      else {
-        console.log('Not logged in')
-      }
+      typeof loggedIn === 'object' && setUser(loggedIn)
     }
 
     getLoggedIn()
