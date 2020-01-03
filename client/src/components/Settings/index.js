@@ -21,18 +21,18 @@ const Settings = () => {
     <div className="Settings">
       <div className="user form">
         <label htmlFor="username">Username</label>
-        <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
+        <input type="text" id="username" className={`shadow-${user.colorTheme}`} value={inputs.username} onChange={onInputChange} />
         <label htmlFor="firstName">First Name</label>
-        <input type="text" id="firstName" value={inputs.firstName} onChange={onInputChange} />
+        <input type="text" id="firstName" className={`shadow-${user.colorTheme}`} value={inputs.firstName} onChange={onInputChange} />
         <label htmlFor="lastName">Last Name</label>
-        <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
+        <input type="text" id="lastName" className={`shadow-${user.colorTheme}`} value={inputs.lastName} onChange={onInputChange} />
         <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
         <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Update Account</button>
       </div>
       <div className="password form">
         <h4>Change Password</h4>
-        <input type="password" id="old-password" placeholder="Old Password" />
-        <input type="password" id="new-password" placeholder="New Password" />
+        <input type="password" id="old-password" className={`shadow-${user.colorTheme}`} placeholder="Old Password" />
+        <input type="password" id="new-password" className={`shadow-${user.colorTheme}`} placeholder="New Password" />
         <button className={`bg-${colorTheme}`}>Update Password</button>
       </div>
       <div className="delete form">

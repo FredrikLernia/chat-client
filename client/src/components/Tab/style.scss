@@ -6,6 +6,7 @@
   width: calc(3.9 * #{$col-size});
 
   .content {
+    height: 100%;
     overflow-y: scroll;
   }
 }
