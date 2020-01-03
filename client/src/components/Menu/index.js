@@ -8,10 +8,15 @@ import PageContext from '../../context/PageContext'
 /* import Avatar from '../Avatar' */
 
 const Menu = () => {
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
   const { tab, setTab } = useContext(PageContext)
 
   const onMenuClick = tab => setTab(tab)
+
+  const logout = async () => {
+    await fetch('/api/login', { method: 'DELETE' })
+    setUser('')
+  }
 
   return (
     <nav className={user.colorTheme ? `Menu bg-${user.colorTheme}` : 'Menu'}>
@@ -29,7 +34,7 @@ const Menu = () => {
       </div>
       <div className="space" />
       <div className="menu-item">
-        <Power />
+        <Power onClick={logout} />
       </div>
     </nav>
   )

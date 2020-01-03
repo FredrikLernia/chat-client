@@ -1,12 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './style.scss'
 
+import UserContext from '../../context/UserContext'
+
 const Login = ({ changePage }) => {
+  const { setUser } = useContext(UserContext)
+
   const [inputs, setInputs] = useState({ username: '', password: '' })
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
 
-  const onSubmit = () => console.log(inputs)
+  const onSubmit = async () => {
+    const loggedInRaw = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inputs)
+    })
+    const loggedIn = await loggedInRaw.json()
+
+    if (typeof loggedIn === 'object') {
+      setUser(loggedIn)
+    }
+    else {
+      console.log('Not logged in')
+    }
+  }
 
   return (
     <div className="Login">
