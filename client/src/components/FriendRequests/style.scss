@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.FriendRequests {
+  padding: 15px;
+
+  h4 {
+    margin-bottom: 6px;
+  }
+
+  .toggle {
+    display: flex;
+
+    .received, .sent {
+      padding: 12px;
+      width: 50%;
+      background-color: #F7F7F7;
+      text-align: center;
+      cursor: pointer;
+
+      &.selected {
+        border-bottom: 2px solid $text-dark-2;
+      }
+    }
+  }
+}
