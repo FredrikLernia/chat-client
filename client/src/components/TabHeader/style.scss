@@ -1,5 +1,23 @@
 @import '../../variables.scss';
 
 .TabHeader {
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid $border-color;
+
+  h2 {
+    flex: 1;
+  }
+
+  svg {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: color 150ms;
+
+    &:hover {
+      color: $text-dark-1;
+    }
+  }
 }

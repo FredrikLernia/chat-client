@@ -1,6 +1,17 @@
+@import '../../variables.scss';
+
 .FriendsList {
+  margin-top: 5px;
+  
   .no-friends {
-    padding: 15px;
-    font-style: italic;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+
+    span {
+      color: $link-color;
+      cursor: pointer;
+    }
   }
 }

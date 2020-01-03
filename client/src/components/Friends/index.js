@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import NewFriend from '../NewFriend'
+import PageContext from '../../context/PageContext'
+
+import NewFriends from '../NewFriends'
 import FriendsList from '../FriendsList'
 
 const Friends = () => {
+  const { friendView } = useContext(PageContext)
+
+  if (friendView === 'list') {
+    return (
+      <div className="Friends">
+        <FriendsList />
+      </div>
+    )
+  }
+
   return (
     <div className="Friends">
-      <NewFriend />
-      <FriendsList />
+      <NewFriends />
     </div>
   )
 }
