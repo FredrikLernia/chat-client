@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './reset.css'
 import './style.scss'
 
-import userData from './json/user.json'
 import UserContext from './context/UserContext'
 
 import LoggedIn from './views/LoggedIn'
@@ -12,13 +11,25 @@ const App = () => {
   const [user, setUser] = useState()
 
   useEffect(() => {
-    setUser(userData)
+    const getLoggedIn = async () => {
+      const loggedInRaw = await fetch('/api/login')
+      const loggedIn = await loggedInRaw.json()
+
+      if (typeof loggedIn === 'object') {
+        setUser(loggedIn)
+      }
+      else {
+        console.log('Not logged in')
+      }
+    }
+
+    getLoggedIn()
   }, [])
 
   if (user) {
     return (
       <div className="App">
-        <UserContext.Provider value={{ user }}>
+        <UserContext.Provider value={{ user, setUser }}>
           <LoggedIn />
         </UserContext.Provider>
       </div>
