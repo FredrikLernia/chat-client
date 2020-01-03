@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .ChatListItem {
-  padding: 7px;
+  padding: 15px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid $border-color;
@@ -13,7 +13,7 @@
   }
 
   .Avatar {
-    margin: 10px;
+    margin-right: 10px;
   }
 
   .content {
