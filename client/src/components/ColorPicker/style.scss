@@ -11,6 +11,34 @@
   
     &.open {
       box-shadow: 0 0 5px $blue;
+
+      &.shadow-yellow {
+        box-shadow: 0 0 5px $yellow;
+      }
+      
+      &.shadow-green {
+        box-shadow: 0 0 5px $green;
+      }
+      
+      &.shadow-red {
+        box-shadow: 0 0 5px $red;
+      }
+      
+      &.shadow-blue {
+        box-shadow: 0 0 5px $blue;
+      }
+      
+      &.shadow-orange {
+        box-shadow: 0 0 5px $orange;
+      }
+      
+      &.shadow-wine {
+        box-shadow: 0 0 5px $wine;
+      }
+      
+      &.shadow-purple {
+        box-shadow: 0 0 5px $purple;
+      }
     }
   
     .color {
