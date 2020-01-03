@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import './style.scss'
 
 import UserContext from '../../context/UserContext'
 
@@ -9,7 +10,9 @@ const FriendsList = () => {
 
   return (
     <div className="FriendsList">
-      {user.friendships.map((friendship, i) => <Friend key={i} friendship={friendship} />)}
+      {user.friendships.length ?
+        user.friendships.map((friendship, i) => <Friend key={i} friendship={friendship} />)
+      : <p className="no-friends">You don't have any friends yet...</p>}
     </div>
   )
 }
