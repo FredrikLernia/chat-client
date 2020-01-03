@@ -7,18 +7,23 @@ import Avatar from '../Avatar'
 import OnlineSymbol from '../OnlineSymbol'
 
 const ChatListItem = props => {
-  const { friend, setFriend } = useContext(PageContext)
+  const { pageFriendship, setPageFriendship } = useContext(PageContext)
 
-  const { _id, firstName, lastName, colorTheme, online, messages } = props.friend
-  const { text, time } = [...messages].pop()
+  const { _id, friend, messages } = props.friendship
+  const { firstName, lastName, colorTheme, online } = friend
+  const message = [...messages].pop()
 
   return (
-    <div className={friend && friend._id === _id ? 'ChatListItem active' : 'ChatListItem'} onClick={() => setFriend(props.friend)}>
+    <div className={pageFriendship && pageFriendship._id === _id ? 'ChatListItem active' : 'ChatListItem'} onClick={() => setPageFriendship(props.friendship)}>
       <Avatar size="md" color={colorTheme} initials={firstName[0] + lastName[0]} />
       <div className="content">
         <h4>{firstName + ' ' + lastName}{online ? <OnlineSymbol margin="left" /> : ''}</h4>
-        <p className="text">{text}</p>
-        <p className="time">{time}</p>
+        {message ?
+          <>
+            <p className="text">{message.text}</p>
+            <p className="time">{message.date}</p>
+          </>
+          : ''}
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ const ChatList = () => {
 
   return (
     <div className="ChatList">
-      {user.friends.map((friend, i) => <ChatListItem key={i} friend={friend} />)}
+      {user.friendships.map((friendship, i) => <ChatListItem key={i} friendship={friendship} />)}
     </div>
   )
 }

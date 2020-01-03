@@ -9,7 +9,7 @@ import Avatar from '../Avatar'
 
 const NewMessage = () => {
   const { user } = useContext(UserContext)
-  const { friend } = useContext(PageContext)
+  const { pageFriendship } = useContext(PageContext)
 
   const { firstName, lastName, colorTheme } = user
 
@@ -20,7 +20,7 @@ const NewMessage = () => {
 
   return (
     <>
-      <div className="typing">{friend.firstName} is typing<span>.</span><span>.</span><span>.</span></div>
+      <div className="typing">{pageFriendship.friend.firstName} is typing<span>.</span><span>.</span><span>.</span></div>
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>

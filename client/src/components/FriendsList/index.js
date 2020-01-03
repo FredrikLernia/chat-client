@@ -9,7 +9,7 @@ const FriendsList = () => {
 
   return (
     <div className="FriendsList">
-      {user.friends.map((friend, i) => <Friend key={i} friend={friend} />)}
+      {user.friendships.map((friendship, i) => <Friend key={i} friendship={friendship} />)}
     </div>
   )
 }

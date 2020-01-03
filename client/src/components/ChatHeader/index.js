@@ -7,13 +7,13 @@ import PageContext from '../../context/PageContext'
 import OnlineSymbol from '../OnlineSymbol'
 
 const ChatHeader = () => {
-  const { friend, setFriend } = useContext(PageContext)
-  const { online, firstName, lastName } = friend
+  const { pageFriendship, setPageFriendship } = useContext(PageContext)
+  const { online, firstName, lastName } = pageFriendship.friend
 
   return (
     <div className="ChatHeader">
       <h2>{online ? <OnlineSymbol margin="right" /> : ''}{firstName + ' ' + lastName}</h2>
-      <X onClick={() => setFriend(null)} />
+      <X onClick={() => setPageFriendship(null)} />
     </div>
   )
 }

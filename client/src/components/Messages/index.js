@@ -15,16 +15,17 @@ const Messages = () => {
   }
 
   const { user } = useContext(UserContext)
-  const { friend } = useContext(PageContext)
-
+  const { pageFriendship } = useContext(PageContext)
+  const { friend } = pageFriendship
   const userInitials = user.firstName[0] + user.lastName[0]
   const friendInitials = friend.firstName[0] + friend.lastName[0]
 
   return (
     <div className="Messages" ref={window}>
-      {friend.messages.map((message, i) => (
+      {pageFriendship.messages.map((message, i) => (
         <Message
           key={i}
+          userId={user._id}
           userInitials={userInitials}
           friendInitials={friendInitials}
           userColor={user.colorTheme}

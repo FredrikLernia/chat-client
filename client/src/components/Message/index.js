@@ -4,12 +4,14 @@ import './style.scss'
 import Avatar from '../Avatar'
 
 const Message = props => {
-  const { userInitials, friendInitials, userColor, friendColor, message, scrollToBottom } = props
-  const { time, text, sent } = message
+  const { userId, userInitials, friendInitials, userColor, friendColor, message, scrollToBottom } = props
+  const { time, text, from } = message
 
   useEffect(() => {
     scrollToBottom()
   })
+
+  const sent = from === userId
 
   if (sent) {
     return (
