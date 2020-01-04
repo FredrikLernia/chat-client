@@ -1,7 +1,30 @@
+@import '../../variables.scss';
+
 .Messages {
   position: relative;
   flex: 1;
   overflow: scroll;
+
+  .separator {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: $text-dark-3;
+
+    &::before, &::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid $border-color;
+    }
+
+    &::before {
+      margin-right: 10px;
+    }
+
+    &::after {
+      margin-left: 10px;
+    }
+  }
 
   .gradient {
     position: sticky;

@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react'
+import { formatTime } from '../../functions/date'
 import './style.scss'
 
 import Avatar from '../Avatar'
 
 const Message = props => {
   const { userId, userInitials, friendInitials, userColor, friendColor, message, scrollToBottom } = props
-  const { time, text, from } = message
+  const { date, text, from } = message
 
   useEffect(() => {
     scrollToBottom()
   })
+
+  let time = formatTime(date)
 
   const sent = from === userId
 
