@@ -7,7 +7,7 @@ const EmptyChat = () => {
     <div className="EmptyChat">
       <div>
         <MessageSquare />
-        <p>No chat selected</p>
+        <p>Ingen chatt vald</p>
       </div>
     </div>
   )

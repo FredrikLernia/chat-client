@@ -31,12 +31,12 @@ const NewMessage = () => {
 
   return (
     <>
-      <div className="typing">{pageFriendship.friend.firstName} is typing<span>.</span><span>.</span><span>.</span></div>
+      <div className="typing">{pageFriendship.friend.firstName} skriver<span>.</span><span>.</span><span>.</span></div>
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
-          <textarea rows="4" placeholder="Type a message..." ref={text} />
-          <button type="submit">Send<Send /></button>
+          <textarea rows="4" placeholder="Skriv ett meddelande..." ref={text} />
+          <button type="submit">Skicka<Send /></button>
         </form>
       </div>
     </>

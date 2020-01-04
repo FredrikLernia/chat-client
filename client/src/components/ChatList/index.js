@@ -18,7 +18,7 @@ const ChatList = () => {
 
           return null
         })
-        : <p className="no-chats">You don't have any chats yet...</p>}
+        : <p className="no-chats">Du har inga chattar än...</p>}
     </div>
   )
 }

@@ -52,7 +52,7 @@ const FriendsSearch = () => {
 
   return (
     <div className="FriendsSearch">
-      <label htmlFor="friends-search">Add Friend</label>
+      <label htmlFor="friends-search">Lägg till vän</label>
       <input
         type="search"
         id="friends-search"
@@ -61,7 +61,7 @@ const FriendsSearch = () => {
         onChange={onSearchChange}
         onFocus={onSearchFocus}
         onBlur={onSearchBlur}
-        placeholder="Search Friends..."
+        placeholder="Sök vänner..."
       />
       {foundUsers.length ?
         <div className="results">

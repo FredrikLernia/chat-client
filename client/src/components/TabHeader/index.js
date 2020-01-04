@@ -7,10 +7,16 @@ import PageContext from '../../context/PageContext'
 const TabHeader = () => {
   const { tab, friendView, setFriendView } = useContext(PageContext)
 
+  const translate = {
+    chats: 'Chattar',
+    friends: 'Vänner',
+    settings: 'Inställningar'
+  }
+
   return (
     <div className="TabHeader">
       <h2>
-        {tab.substring(0, 1).toUpperCase() + tab.substring(1)}
+        {translate[tab]}
       </h2>
       {tab === 'friends' ?
         friendView === 'list' ? <UserPlus onClick={() => setFriendView('new')} /> : <List onClick={() => setFriendView('list')} />

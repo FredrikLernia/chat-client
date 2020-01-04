@@ -20,23 +20,23 @@ const Settings = () => {
   return (
     <div className="Settings">
       <div className="user form">
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Användarnamn</label>
         <input type="text" id="username" className={`shadow-${user.colorTheme}`} value={inputs.username} onChange={onInputChange} />
-        <label htmlFor="firstName">First Name</label>
+        <label htmlFor="firstName">Förnamn</label>
         <input type="text" id="firstName" className={`shadow-${user.colorTheme}`} value={inputs.firstName} onChange={onInputChange} />
-        <label htmlFor="lastName">Last Name</label>
+        <label htmlFor="lastName">Efternamn</label>
         <input type="text" id="lastName" className={`shadow-${user.colorTheme}`} value={inputs.lastName} onChange={onInputChange} />
         <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
-        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Update Account</button>
+        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Uppdatera konto</button>
       </div>
       <div className="password form">
-        <h4>Change Password</h4>
-        <input type="password" id="old-password" className={`shadow-${user.colorTheme}`} placeholder="Old Password" />
-        <input type="password" id="new-password" className={`shadow-${user.colorTheme}`} placeholder="New Password" />
-        <button className={`bg-${colorTheme}`}>Update Password</button>
+        <h4>Nytt lösenord</h4>
+        <input type="password" id="old-password" className={`shadow-${user.colorTheme}`} placeholder="Nuvarande lösenord" />
+        <input type="password" id="new-password" className={`shadow-${user.colorTheme}`} placeholder="Nytt lösenord" />
+        <button className={`bg-${colorTheme}`}>Ändra lösenord</button>
       </div>
       <div className="delete form">
-        <button>Delete Account</button>
+        <button>Ta bort konto</button>
       </div>
     </div>
   )

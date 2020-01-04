@@ -14,7 +14,7 @@ const ColorPicker = ({ color, changeColor }) => {
 
   return (
     <div className="ColorPicker">
-      <label htmlFor="colorTheme">Color Theme</label>
+      <label htmlFor="colorTheme">Färgtema</label>
       <div className={pickerOpen ? `color-picker open${shadow}` : `color-picker${shadow}`} onClick={() => setPickerOpen(!pickerOpen)}>
         <div className={`color bg-${color}`}></div>
         <ChevronDown />

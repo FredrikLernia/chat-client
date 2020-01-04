@@ -14,18 +14,18 @@ const SignUp = ({ changePage }) => {
 
   return (
     <div className="SignUp">
-      <h1>Sign Up</h1>
-      <label htmlFor="username">Username</label>
+      <h1>Registrera</h1>
+      <label htmlFor="username">Användarnamn</label>
       <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
-      <label htmlFor="firstName">First Name</label>
+      <label htmlFor="firstName">Förnamn</label>
       <input type="text" id="firstName" value={inputs.firstName} onChange={onInputChange} />
-      <label htmlFor="lastName">Last Name</label>
+      <label htmlFor="lastName">Efternamn</label>
       <input type="text" id="lastName" value={inputs.lastName} onChange={onInputChange} />
       <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Lösenord</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <button className="update-account bg-blue" onClick={onSubmit}>Sign Up</button>
-      <p>Already have an account? <span onClick={() => changePage('login')}>Login</span></p>
+      <button className="update-account bg-blue" onClick={onSubmit}>Registrera</button>
+      <p>Har du redan ett konto? <span onClick={() => changePage('login')}>Logga in</span></p>
     </div>
   )
 }

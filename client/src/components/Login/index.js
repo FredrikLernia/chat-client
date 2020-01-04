@@ -30,13 +30,13 @@ const Login = ({ changePage }) => {
 
   return (
     <div className="Login">
-      <h1>Login</h1>
-      <label htmlFor="username">Username</label>
+      <h1>Logga in</h1>
+      <label htmlFor="username">Användarnamn</label>
       <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Lösenord</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <button className="bg-blue" onClick={onSubmit}>Login</button>
-      <p>Don't have an account yet? <span onClick={() => changePage('sign-up')}>Sing up</span></p>
+      <button className="bg-blue" onClick={onSubmit}>Logga in</button>
+      <p>Har du inget konto? <span onClick={() => changePage('sign-up')}>Registrera här!</span></p>
     </div>
   )
 }

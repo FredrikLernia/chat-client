@@ -15,7 +15,7 @@ const FriendsList = () => {
       {user.friendships.length ?
         user.friendships.map((friendship, i) => <Friend key={i} friendship={friendship} />)
         : <p className="no-friends">
-          You don't have any friends yet. Click <span onClick={() => setFriendView('new')}>here</span> to find some new!
+          Du har inga vänner än. Klicka <span onClick={() => setFriendView('new')}>här</span> för att hitta nya!
         </p>}
     </div>
   )

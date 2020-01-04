@@ -6,19 +6,19 @@ const FriendRequests = () => {
 
   return (
     <div className="FriendRequests">
-      <h4>Friend Requests</h4>
+      <h4>Vänförfrågningar</h4>
       <div className="toggle">
         <div
           className={toggle === 'received' ? 'received selected' : 'received'}
           onClick={() => setToggle('received')}
         >
-          Received
+          Mottagna
         </div>
         <div
           className={toggle === 'sent' ? 'sent selected' : 'sent'}
           onClick={() => setToggle('sent')}
         >
-          Sent
+          Skickade
         </div>
       </div>
     </div>
