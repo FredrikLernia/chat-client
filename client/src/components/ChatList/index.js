@@ -11,8 +11,14 @@ const ChatList = () => {
   return (
     <div className="ChatList">
       {user.friendships.length ?
-        user.friendships.map((friendship, i) => <ChatListItem key={i} friendship={friendship} />)
-      : <p className="no-chats">You don't have any chats yet...</p>}
+        user.friendships.map((friendship, i) => {
+          if (friendship.messages.length) {
+            return <ChatListItem key={i} friendship={friendship} />
+          }
+
+          return null
+        })
+        : <p className="no-chats">You don't have any chats yet...</p>}
     </div>
   )
 }
