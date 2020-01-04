@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useRef } from 'react'
 import './style.scss'
 
 import UserContext from '../../context/UserContext'
@@ -6,16 +6,51 @@ import UserContext from '../../context/UserContext'
 import ColorPicker from '../ColorPicker'
 
 const Settings = () => {
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
 
   const [inputs, setInputs] = useState({ username, firstName, lastName, colorTheme })
+  const currentPassword = useRef()
+  const newPassword = useRef()
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
 
   const onColorChange = color => setInputs({ ...inputs, colorTheme: color })
 
-  const onUpdateClick = () => console.log(inputs)
+  const onUpdateClick = async () => {
+    const userRaw = await fetch('/api/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs)
+    })
+    const updatedUser = await userRaw.json()
+
+    if (updatedUser.errors) {
+      return
+    }
+
+    setUser(updatedUser)
+  }
+
+  const onPasswordClick = async () => {
+    const userRaw = await fetch('/api/users', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        currentPassword: currentPassword.current.value,
+        newPassword: newPassword.current.value
+      })
+    })
+    const updatedUser = await userRaw.json()
+
+    if (updatedUser.errors) {
+      return
+    }
+  }
 
   return (
     <div className="Settings">
@@ -31,9 +66,9 @@ const Settings = () => {
       </div>
       <div className="password form">
         <h4>Nytt lösenord</h4>
-        <input type="password" id="old-password" className={`shadow-${user.colorTheme}`} placeholder="Nuvarande lösenord" />
-        <input type="password" id="new-password" className={`shadow-${user.colorTheme}`} placeholder="Nytt lösenord" />
-        <button className={`bg-${colorTheme}`}>Ändra lösenord</button>
+        <input type="password" ref={currentPassword} className={`shadow-${user.colorTheme}`} placeholder="Nuvarande lösenord" />
+        <input type="password" ref={newPassword} className={`shadow-${user.colorTheme}`} placeholder="Nytt lösenord" />
+        <button className={`bg-${colorTheme}`} onClick={onPasswordClick}>Ändra lösenord</button>
       </div>
       <div className="delete form">
         <button>Ta bort konto</button>
