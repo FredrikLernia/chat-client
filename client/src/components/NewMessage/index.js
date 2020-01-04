@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Send } from 'react-feather'
 import './style.scss'
 
@@ -10,12 +10,23 @@ import Avatar from '../Avatar'
 const NewMessage = () => {
   const { user } = useContext(UserContext)
   const { pageFriendship } = useContext(PageContext)
+  const text = useRef()
 
   const { firstName, lastName, colorTheme } = user
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault()
-    console.log('submit')
+
+    // SSE
+    if (text.current.value.length > 0) {
+      await fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ friendshipId: pageFriendship._id, text: text.current.value })
+      })
+    }
   }
 
   return (
@@ -24,7 +35,7 @@ const NewMessage = () => {
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
-          <textarea rows="4" placeholder="Type a message..." />
+          <textarea rows="4" placeholder="Type a message..." ref={text} />
           <button type="submit">Send<Send /></button>
         </form>
       </div>
