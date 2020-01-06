@@ -70,7 +70,7 @@ const FriendsSearch = () => {
               <div key={i} className="found-friend">
                 <Avatar size="sm" color={colorTheme} initials={firstName[0] + lastName[0]} />
                 <div className="content">
-                  <h4>{firstName + ' ' + lastName}</h4>
+                  <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
                 <SearchOption friendshipType={friendshipType} />

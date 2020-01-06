@@ -19,14 +19,13 @@
       margin-right: 10px;
       margin-left: 10px;
 
-      h4 {
+      h5 {
         overflow-x: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
 
       .username {
-        margin-top: 5px;
         color: $text-dark-3;
       }
     }

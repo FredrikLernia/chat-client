@@ -16,7 +16,7 @@ const Friend = props => {
       <div className="change-chat" onClick={() => setPageFriendship(props.friendship)}>
         <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <div className="content">
-          <h4>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h4>
+          <h5>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h5>
           <p className="username">{username}</p>
         </div>
       </div>

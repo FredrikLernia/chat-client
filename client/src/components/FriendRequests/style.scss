@@ -9,7 +9,8 @@
     .received, .sent {
       padding: 12px;
       width: 50%;
-      background-color: #F7F7F7;
+      background-color: #fff;
+      opacity: 0.9;
       text-align: center;
       cursor: pointer;
 
@@ -29,14 +30,13 @@
       margin-right: 10px;
       margin-left: 10px;
 
-      h4 {
+      h5 {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
 
       .username {
-        margin-top: 5px;
         color: $text-dark-3;
       }
     }

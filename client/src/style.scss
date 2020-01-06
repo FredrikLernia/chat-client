@@ -19,17 +19,26 @@ h1 {
   color: $text-dark-1;
 }
 
-h2 {
-  padding: 15px;
-  font-size: 15px;
+h2, h4, h5 {
   font-weight: bold;
   color: $text-dark-1;
 }
 
-h4 {
+h2 {
+  padding: 15px;
+  font-size: 15px;
+}
+
+h4, h5 {
   font-size: $font-size;
-  font-weight: bold;
-  color: $text-dark-1;
+}
+
+h4 {
+  margin-bottom: 6px;
+}
+
+h5 {
+  margin-bottom: 5px;
 }
 
 input, textarea, button {
