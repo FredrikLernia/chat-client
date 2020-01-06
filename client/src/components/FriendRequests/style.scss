@@ -3,10 +3,6 @@
 .FriendRequests {
   padding: 15px;
 
-  h4 {
-    margin-bottom: 6px;
-  }
-
   .toggle {
     display: flex;
 
@@ -26,7 +22,7 @@
   .request {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 15px;
 
     .content {
       flex: 1;
@@ -47,24 +43,13 @@
 
     button {
       font-weight: normal;
-      &.delete {
-        border: 2px solid #003663;
-        color: $text-dark-2;
+      &.confirm {
+        background-color: $success;
       }
-    }
-
-    &.received-req {
-      button {
-        &.confirm {
-          background-color: #003663;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-          border: 2px solid #003663;
-        }
-        &.delete {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
+      &.delete {
+        margin-left: 5px;
+        background-color: #ddd;
+        color: $text-dark-1;
       }
     }
   }
