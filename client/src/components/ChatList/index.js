@@ -8,17 +8,17 @@ import ChatListItem from '../ChatListItem'
 const ChatList = () => {
   const { user } = useContext(UserContext)
 
+  const chats = []
+  
+  user.friendships.forEach((friendship, i) => {
+    if (friendship.messages.length) {
+      chats.push(<ChatListItem key={i} friendship={friendship} />)
+    }
+  })
+
   return (
     <div className="ChatList">
-      {user.friendships.length ?
-        user.friendships.map((friendship, i) => {
-          if (friendship.messages.length) {
-            return <ChatListItem key={i} friendship={friendship} />
-          }
-
-          return null
-        })
-        : <p className="no-chats">Du har inga chattar än...</p>}
+      {chats.length ? chats : <p className="no-chats">Du har inga chattar än.</p>}
     </div>
   )
 }
