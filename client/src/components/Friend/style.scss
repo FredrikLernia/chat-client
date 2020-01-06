@@ -12,21 +12,29 @@
   .change-chat {
     flex: 1;
     display: flex;
+    align-items: center;
     
-    h4 {
-      display: flex;
-      align-items: center;
+    .content {
+      flex: 1;
       margin-right: 10px;
       margin-left: 10px;
+
+      h4 {
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .username {
+        margin-top: 5px;
+        color: $text-dark-3;
+      }
     }
   }
 
-  svg {
-    width: 20px;
-    height: 20px;
-
-    &:hover {
-      color: $danger;
-    }
+  button {
+    font-weight: normal;
+    border: 2px solid #003663;
+    color: $text-dark-2;
   }
 }

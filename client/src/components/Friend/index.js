@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { UserMinus } from 'react-feather'
 import './style.scss'
 
 import PageContext from '../../context/PageContext'
@@ -10,15 +9,18 @@ import OnlineSymbol from '../OnlineSymbol'
 const Friend = props => {
   const { setPageFriendship } = useContext(PageContext)
 
-  const { firstName, lastName, colorTheme, online } = props.friendship.friend
+  const { username, firstName, lastName, colorTheme, online } = props.friendship.friend
 
   return (
     <div className="Friend">
       <div className="change-chat" onClick={() => setPageFriendship(props.friendship)}>
         <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
-        <h4>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h4>
+        <div className="content">
+          <h4>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h4>
+          <p className="username">{username}</p>
+        </div>
       </div>
-      <UserMinus onClick={() => console.log('delete')} />
+      <button>Ta bort</button>
     </div>
   )
 }
