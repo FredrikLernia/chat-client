@@ -22,4 +22,54 @@
       }
     }
   }
+
+  .request {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    .content {
+      flex: 1;
+      margin-right: 10px;
+      margin-left: 10px;
+
+      h4 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .username {
+        margin-top: 5px;
+        color: $text-dark-3;
+      }
+    }
+
+    button {
+      font-weight: normal;
+      &.delete {
+        border: 2px solid #003663;
+        color: $text-dark-2;
+      }
+    }
+
+    &.received-req {
+      button {
+        &.confirm {
+          background-color: #003663;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border: 2px solid #003663;
+        }
+        &.delete {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+
+  .no-requests {
+    margin-top: 15px;
+  }
 }

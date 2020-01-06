@@ -1,8 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './style.scss'
 
+import UserContext from '../../context/UserContext'
+
+import Avatar from '../Avatar'
+
 const FriendRequests = () => {
+  const { user } = useContext(UserContext)
+  const { received, sent } = user.friendRequests
+
   const [toggle, setToggle] = useState('received')
+
+  const onConfirmClick = async id => {
+    const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
+    const friendship = await friendshipRaw.json()
+
+    if (typeof friendship === 'object') {
+      // Update UserContext
+    }
+  }
 
   return (
     <div className="FriendRequests">
@@ -21,6 +37,40 @@ const FriendRequests = () => {
           Skickade
         </div>
       </div>
+      {toggle === 'received' ?
+        received.length ?
+          received.map(({ _id, friend }, i) => {
+            const { username, firstName, lastName, colorTheme } = friend
+            return (
+              <div key={i} className="request received-req">
+                <Avatar size="sm" color={colorTheme} initials={firstName[0] + lastName[0]} />
+                <div className="content">
+                  <h4>{firstName + ' ' + lastName}</h4>
+                  <p className="username">{username}</p>
+                </div>
+                <button className="confirm" onClick={() => onConfirmClick(_id)}>Bekräfta</button>
+                <button className="delete">Ta bort</button>
+              </div>
+            )
+          })
+          : <p className="no-requests">Du har inga mottagna vänförfrågningar.</p>
+        :
+        sent.length ?
+          sent.map(({ _id, friend }, i) => {
+            const { username, firstName, lastName, colorTheme } = friend
+            return (
+              <div key={i} className="request sent-req">
+                <Avatar size="sm" color={colorTheme} initials={firstName[0] + lastName[0]} />
+                <div className="content">
+                  <h4>{firstName + ' ' + lastName}</h4>
+                  <p className="username">{username}</p>
+                </div>
+                <button className="delete">Ta bort</button>
+              </div>
+            )
+          })
+          : <p className="no-requests">Du har inga skickade vänförfrågningar.</p>
+      }
     </div>
   )
 }
