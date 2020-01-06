@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { UserPlus } from 'react-feather'
 import './style.scss'
 
 import UserContext from '../../context/UserContext'
 
 import Avatar from '../Avatar'
+import SearchOption from '../SearchOption'
 
 const FriendsSearch = () => {
   const { user } = useContext(UserContext)
@@ -31,6 +31,22 @@ const FriendsSearch = () => {
 
   const onSearchBlur = () => setFoundUsers([])
 
+  const getFriendshipType = id => {
+    if (user.friendships.some(({ friend }) => friend._id === id)) {
+      return 'friend'
+    }
+    if (user.friendRequests.received.some(({ friend }) => friend._id === id)) {
+      return 'received'
+    }
+    if (user.friendRequests.sent.some(({ friend }) => friend._id === id)) {
+      return 'sent'
+    }
+    if (user._id === id) {
+      return 'self'
+    }
+    return 'add'
+  }
+
   return (
     <div className="FriendsSearch">
       <label htmlFor="friends-search">Lägg till vän</label>
@@ -43,19 +59,24 @@ const FriendsSearch = () => {
         onFocus={onSearchFocus}
         onBlur={onSearchBlur}
         placeholder="Sök vänner..."
+        autoComplete="off"
       />
       {foundUsers.length ?
         <div className="results">
-          {foundUsers.map(({ username, firstName, lastName, colorTheme }, i) => (
-            <div key={i} className="found-friend">
-              <Avatar size="sm" color={colorTheme} initials={firstName[0] + lastName[0]} />
-              <div className="content">
-                <h4>{firstName + ' ' + lastName}</h4>
-                <p className="username">{username}</p>
+          {foundUsers.map(({ _id, username, firstName, lastName, colorTheme }, i) => {
+            const friendshipType = getFriendshipType(_id)
+
+            return (
+              <div key={i} className="found-friend">
+                <Avatar size="sm" color={colorTheme} initials={firstName[0] + lastName[0]} />
+                <div className="content">
+                  <h4>{firstName + ' ' + lastName}</h4>
+                  <p className="username">{username}</p>
+                </div>
+                <SearchOption friendshipType={friendshipType} />
               </div>
-              <UserPlus />
-            </div>
-          ))}
+            )
+          })}
         </div>
         : ''
       }

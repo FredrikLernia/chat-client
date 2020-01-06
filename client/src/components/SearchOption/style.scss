@@ -1,0 +1,24 @@
+@import '../../variables.scss';
+
+.SearchOption {
+  button {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+
+    &.confirm, &.add {
+      background-color: $success;
+    }
+
+    &.delete {
+      background-color: #ddd;
+      color: $text-dark-1;
+    }
+
+    svg {
+      margin-right: 5px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
