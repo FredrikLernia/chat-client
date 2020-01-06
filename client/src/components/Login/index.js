@@ -10,7 +10,9 @@ const Login = ({ changePage }) => {
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
 
-  const onSubmit = async () => {
+  const onLoginSubmit = async e => {
+    e.preventDefault()
+    
     const loggedInRaw = await fetch('/api/login', {
       method: 'POST',
       headers: {
@@ -29,15 +31,15 @@ const Login = ({ changePage }) => {
   }
 
   return (
-    <div className="Login">
+    <form className="Login" onSubmit={onLoginSubmit}>
       <h1>Logga in</h1>
       <label htmlFor="username">Användarnamn</label>
       <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
       <label htmlFor="password">Lösenord</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <button className="bg-blue" onClick={onSubmit}>Logga in</button>
+      <button type="submit" className="bg-blue">Logga in</button>
       <p>Har du inget konto? <span onClick={() => changePage('sign-up')}>Registrera här!</span></p>
-    </div>
+    </form>
   )
 }
 
