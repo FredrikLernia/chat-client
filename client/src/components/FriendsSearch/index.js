@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { UserPlus } from 'react-feather'
 import './style.scss'
 
@@ -9,21 +9,10 @@ import Avatar from '../Avatar'
 const FriendsSearch = () => {
   const { user } = useContext(UserContext)
 
-  const [users, setUsers] = useState([])
   const [search, setSearch] = useState('')
   const [foundUsers, setFoundUsers] = useState([])
 
-  useEffect(() => {
-    const getUsers = async () => {
-      const usersRaw = await fetch('/api/users')
-      const users = await usersRaw.json()
-      setUsers(users)
-    }
-
-    getUsers()
-  }, [])
-
-  const onSearchChange = e => {
+  const onSearchChange = async e => {
     let val = e.target.value
 
     setSearch(val)
@@ -33,17 +22,9 @@ const FriendsSearch = () => {
       return
     }
 
-    const foundSearch = users.filter(({ username, firstName, lastName }) => {
-      val = val.toLowerCase().replace(/\s/g, '')
-
-      return (
-        username.toLowerCase().startsWith(val) ||
-        (firstName.toLowerCase() + lastName.toLowerCase()).startsWith(val) ||
-        (lastName.toLowerCase() + firstName.toLowerCase()).startsWith(val)
-      )
-    })
-
-    setFoundUsers(foundSearch)
+    const usersRaw = await fetch(`/api/users/?search=${val}`)
+    const users = await usersRaw.json()
+    setFoundUsers(users)
   }
 
   const onSearchFocus = e => onSearchChange(e)
