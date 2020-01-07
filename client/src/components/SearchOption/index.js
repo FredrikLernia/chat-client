@@ -2,7 +2,11 @@ import React from 'react'
 import { Check, X, Plus } from 'react-feather'
 import './style.scss'
 
+import useSetUser from '../../functions/useSetUser'
+
 const SearchOption = ({ friendship }) => {
+  const { update } = useSetUser()
+
   const { type, id } = friendship
 
   const onButtonClick = async (type, id) => {
@@ -10,7 +14,7 @@ const SearchOption = ({ friendship }) => {
       const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
-        // Update UserContext
+        update()
       }
       return
     }
@@ -19,7 +23,7 @@ const SearchOption = ({ friendship }) => {
       const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
-        // Update UserContext
+        update()
       }
       return
     }
@@ -28,7 +32,7 @@ const SearchOption = ({ friendship }) => {
       const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'POST' })
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
-        // Update UserContext
+        update()
       }
       return
     }

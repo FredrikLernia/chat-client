@@ -1,11 +1,15 @@
 import React, { useState, useContext } from 'react'
 import './style.scss'
 
+import useSetUser from '../../functions/useSetUser'
+
 import UserContext from '../../context/UserContext'
 
 import Avatar from '../Avatar'
 
 const FriendRequests = () => {
+  const { update } = useSetUser()
+
   const { user } = useContext(UserContext)
   const { received, sent } = user.friendRequests
 
@@ -15,7 +19,7 @@ const FriendRequests = () => {
     const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
     const friendship = await friendshipRaw.json()
     if (typeof friendship === 'object') {
-      // Update UserContext
+      update()
     }
   }
 
@@ -23,7 +27,7 @@ const FriendRequests = () => {
     const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
-        // Update UserContext
+        update()
       }
   }
 
@@ -72,7 +76,7 @@ const FriendRequests = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <button className="delete" onClick={() => onDeleteClick(_id)}>Ta bort</button>
+                <button className="delete" onClick={() => onDeleteClick(_id)}>Avbryt</button>
               </div>
             )
           })
