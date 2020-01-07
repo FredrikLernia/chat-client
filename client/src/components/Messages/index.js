@@ -10,7 +10,6 @@ import Message from '../Message'
 const Messages = () => {
   const { user } = useContext(UserContext)
   const { pageFriendship } = useContext(PageContext)
-  const { friend } = pageFriendship
   const window = useRef()
 
   const scrollToBottom = () => {
@@ -18,18 +17,20 @@ const Messages = () => {
     window.current.scrollTo(0, scrollY)
   }
 
+  const { friend, messages } = user.friendships.find(friendship => friendship._id === pageFriendship)
+
   const userInitials = user.firstName[0] + user.lastName[0]
   const friendInitials = friend.firstName[0] + friend.lastName[0]
 
   return (
     <div className="Messages" ref={window}>
-      {pageFriendship.messages.map((message, i) => {
+      {messages.map((message, i) => {
         const time = formatDate(message.date)
-        
+
         return (
           <div key={i}>
             {!i ? <div className="separator">{time}</div>
-              : i > 0 && !isSameDay(message.date, pageFriendship.messages[i - 1].date) ?
+              : i > 0 && !isSameDay(message.date, messages[i - 1].date) ?
                 <div className="separator">{time}</div>
                 : ''}
             <Message
@@ -39,6 +40,7 @@ const Messages = () => {
               userColor={user.colorTheme}
               friendColor={friend.colorTheme}
               message={message}
+              nextMessageFrom={messages.length > (i + 1) ? messages[i + 1].from : ''}
               scrollToBottom={scrollToBottom}
             />
           </div>

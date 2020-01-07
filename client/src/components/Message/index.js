@@ -5,7 +5,16 @@ import './style.scss'
 import Avatar from '../Avatar'
 
 const Message = props => {
-  const { userId, userInitials, friendInitials, userColor, friendColor, message, scrollToBottom } = props
+  const {
+    userId,
+    userInitials,
+    friendInitials,
+    userColor,
+    friendColor,
+    message,
+    nextMessageFrom,
+    scrollToBottom
+  } = props
   const { date, text, from } = message
 
   useEffect(() => {
@@ -24,14 +33,22 @@ const Message = props => {
           <p className="time">{time}</p>
           <p className="text sent">{text}</p>
         </div>
-        <Avatar size="sm" color={userColor} initials={userInitials} />
+        {nextMessageFrom !== from ?
+          <Avatar size="sm" color={userColor} initials={userInitials} />
+          :
+          <Avatar size="sm" display="none" />
+        }
       </div>
     )
   }
 
   return (
     <div className="Message left">
-      <Avatar size="sm" color={friendColor} initials={friendInitials} />
+      {nextMessageFrom !== from ?
+        <Avatar size="sm" color={friendColor} initials={friendInitials} />
+        :
+        <Avatar size="sm" display="none" />
+      }
       <div className="content">
         <p className="time">{time}</p>
         <p className="text">{text}</p>
