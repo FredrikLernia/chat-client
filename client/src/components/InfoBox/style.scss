@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+.InfoBox {
+  position: fixed;
+  top: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(#{$app-width} - 1px);
+  height: 60px;
+  background-color: $app-green;
+  color: $text-light;
+  transition: top 500ms ease-out;
+
+  &.open {
+    top: 0;
+    transition: top 250ms ease-out;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    height: 100%;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+}
