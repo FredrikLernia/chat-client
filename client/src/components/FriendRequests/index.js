@@ -14,10 +14,17 @@ const FriendRequests = () => {
   const onConfirmClick = async id => {
     const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
     const friendship = await friendshipRaw.json()
-
     if (typeof friendship === 'object') {
       // Update UserContext
     }
+  }
+
+  const onDeleteClick = async id => {
+    const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
+      const friendship = await friendshipRaw.json()
+      if (typeof friendship === 'object') {
+        // Update UserContext
+      }
   }
 
   return (
@@ -28,13 +35,13 @@ const FriendRequests = () => {
           className={toggle === 'received' ? 'received  selected' : 'received'}
           onClick={() => setToggle('received')}
         >
-          Mottagna
+          {received.length ? `Mottagna (${received.length})` : 'Mottagna'}
         </div>
         <div
           className={toggle === 'sent' ? 'sent selected' : 'sent'}
           onClick={() => setToggle('sent')}
         >
-          Skickade
+          {sent.length ? `Skickade (${sent.length})` : 'Skickade'}
         </div>
       </div>
       {toggle === 'received' ?
@@ -49,7 +56,7 @@ const FriendRequests = () => {
                   <p className="username">{username}</p>
                 </div>
                 <button className="confirm" onClick={() => onConfirmClick(_id)}>Bekräfta</button>
-                <button className="delete">Ta bort</button>
+                <button className="delete" onClick={() => onDeleteClick(_id)}>Ta bort</button>
               </div>
             )
           })
@@ -65,7 +72,7 @@ const FriendRequests = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <button className="delete">Ta bort</button>
+                <button className="delete" onClick={() => onDeleteClick(_id)}>Ta bort</button>
               </div>
             )
           })

@@ -29,22 +29,32 @@ const FriendsSearch = () => {
 
   const onSearchFocus = e => onSearchChange(e)
 
-  const onSearchBlur = () => setFoundUsers([])
+  // onBlur didn't work with the onClick inside the results div
+  // const onSearchBlur = () => setFoundUsers([])
 
-  const getFriendshipType = id => {
+  const getFriendship = id => {
     if (user.friendships.some(({ friend }) => friend._id === id)) {
-      return 'friend'
+      return { type: 'friend' }
     }
     if (user.friendRequests.received.some(({ friend }) => friend._id === id)) {
-      return 'received'
+      return { 
+        type: 'received',
+        id: user.friendRequests.received.find(({ friend }) => friend._id === id)._id
+      }
     }
     if (user.friendRequests.sent.some(({ friend }) => friend._id === id)) {
-      return 'sent'
+      return {
+        type: 'sent',
+        id: user.friendRequests.sent.find(({ friend }) => friend._id === id)._id
+      }
     }
     if (user._id === id) {
-      return 'self'
+      return { type: 'self' }
     }
-    return 'add'
+    return {
+      type: 'add',
+      id
+    }
   }
 
   return (
@@ -57,14 +67,14 @@ const FriendsSearch = () => {
         value={search}
         onChange={onSearchChange}
         onFocus={onSearchFocus}
-        onBlur={onSearchBlur}
+        // onBlur={onSearchBlur}
         placeholder="Sök vänner..."
         autoComplete="off"
       />
       {foundUsers.length ?
         <div className="results">
           {foundUsers.map(({ _id, username, firstName, lastName, colorTheme }, i) => {
-            const friendshipType = getFriendshipType(_id)
+            const friendship = getFriendship(_id)
 
             return (
               <div key={i} className="found-friend">
@@ -73,7 +83,7 @@ const FriendsSearch = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <SearchOption friendshipType={friendshipType} />
+                <SearchOption friendship={friendship} />
               </div>
             )
           })}
