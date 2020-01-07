@@ -4,7 +4,7 @@ import './style.scss'
 
 import useSetUser from '../../functions/useSetUser'
 
-const SearchOption = ({ friendship }) => {
+const SearchOption = ({ friendship, setSearch, setFoundUsers }) => {
   const { update } = useSetUser()
 
   const { type, id } = friendship
@@ -15,6 +15,10 @@ const SearchOption = ({ friendship }) => {
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
         update()
+        setTimeout(() => {
+          setSearch('')
+          setFoundUsers([])
+        }, 500)
       }
       return
     }
@@ -24,6 +28,10 @@ const SearchOption = ({ friendship }) => {
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
         update()
+        setTimeout(() => {
+          setSearch('')
+          setFoundUsers([])
+        }, 500)
       }
       return
     }
@@ -33,6 +41,10 @@ const SearchOption = ({ friendship }) => {
       const friendship = await friendshipRaw.json()
       if (typeof friendship === 'object') {
         update()
+        setTimeout(() => {
+          setSearch('')
+          setFoundUsers([])
+        }, 250)
       }
       return
     }
