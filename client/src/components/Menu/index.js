@@ -5,6 +5,7 @@ import './style.scss'
 import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
+import CountCircle from '../CountCircle'
 /* import Avatar from '../Avatar' */
 
 const Menu = () => {
@@ -27,6 +28,7 @@ const Menu = () => {
         <MessageSquare />
       </div>
       <div className={tab === 'friends' ? 'menu-item active' : 'menu-item'} onClick={() => onMenuClick('friends')}>
+        <CountCircle location="menu" />
         <Users />
       </div>
       <div className={tab === 'settings' ? 'menu-item active' : 'menu-item'} onClick={() => onMenuClick('settings')}>

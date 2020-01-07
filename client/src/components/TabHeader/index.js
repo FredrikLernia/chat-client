@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
-import { UserPlus, List } from 'react-feather'
+import { PlusCircle, List } from 'react-feather'
 import './style.scss'
 
 import PageContext from '../../context/PageContext'
+
+import CountCircle from '../CountCircle'
 
 const TabHeader = () => {
   const { tab, friendView, setFriendView } = useContext(PageContext)
@@ -19,8 +21,13 @@ const TabHeader = () => {
         {translate[tab]}
       </h2>
       {tab === 'friends' ?
-        friendView === 'list' ? <UserPlus onClick={() => setFriendView('new')} /> : <List onClick={() => setFriendView('list')} />
-      : ''}
+        friendView === 'list' ?
+          <>
+            <CountCircle location="tabHeader" />
+            <PlusCircle onClick={() => setFriendView('new')} />
+          </>
+          : <List onClick={() => setFriendView('list')} />
+        : ''}
     </div>
   )
 }
