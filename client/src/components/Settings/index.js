@@ -1,12 +1,16 @@
 import React, { useState, useContext, useRef } from 'react'
 import './style.scss'
 
+import useSetUser from '../../functions/useSetUser'
+
 import UserContext from '../../context/UserContext'
 
 import ColorPicker from '../ColorPicker'
 
 const Settings = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { update } = useSetUser()
+
+  const { user } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
 
   const [inputs, setInputs] = useState({ username, firstName, lastName, colorTheme })
@@ -31,7 +35,7 @@ const Settings = () => {
       return
     }
 
-    setUser(updatedUser)
+    update()
   }
 
   const onPasswordClick = async () => {
