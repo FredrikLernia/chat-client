@@ -83,7 +83,7 @@ const FriendsSearch = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <SearchOption friendship={friendship} />
+                <SearchOption friendship={friendship} setSearch={setSearch} setFoundUsers={setFoundUsers} />
               </div>
             )
           })}
