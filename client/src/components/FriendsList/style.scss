@@ -2,6 +2,16 @@
 
 .FriendsList {
   margin-top: 5px;
+
+  .letter {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    color: $text-dark-1;
+    font-size: 15px;
+    text-decoration: underline;
+  }
   
   .no-friends {
     padding-top: 10px;

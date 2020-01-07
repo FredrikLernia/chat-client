@@ -10,10 +10,25 @@ const FriendsList = () => {
   const { user } = useContext(UserContext)
   const { setFriendView } = useContext(PageContext)
 
+  let { friendships } = user
+  friendships = [...friendships].sort((a, b) => {
+    return (a.friend.lastName + a.friend.firstName).localeCompare((b.friend.lastName + b.friend.firstName))
+  })
+
   return (
     <div className="FriendsList">
       {user.friendships.length ?
-        user.friendships.map((friendship, i) => <Friend key={i} friendship={friendship} />)
+        friendships.map((friendship, i) => {
+          if (!i || friendships[i - 1].friend.lastName[0] !== friendship.friend.lastName[0]) {
+            return (
+              <div key={i}>
+                <p className="letter">{friendship.friend.lastName[0]}</p>
+                <Friend friendship={friendship} />
+              </div>
+            )
+          }
+          return <Friend key={i} friendship={friendship} />
+        })
         : <p className="no-friends">
           Du har inga vänner än. Klicka <span onClick={() => setFriendView('new')}>här</span> för att hitta nya!
         </p>}
