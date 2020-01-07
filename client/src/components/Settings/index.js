@@ -4,6 +4,7 @@ import './style.scss'
 import useSetUser from '../../functions/useSetUser'
 
 import UserContext from '../../context/UserContext'
+import PageContext from '../../context/PageContext'
 
 import ColorPicker from '../ColorPicker'
 
@@ -12,6 +13,8 @@ const Settings = () => {
 
   const { user } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
+
+  const { setInfoBox } = useContext(PageContext)
 
   const [inputs, setInputs] = useState({ username, firstName, lastName, colorTheme })
   const currentPassword = useRef()
@@ -36,6 +39,7 @@ const Settings = () => {
     }
 
     update()
+    setInfoBox({ open: true, page: 'settings', text: 'Din profil har uppdaterats!' })
   }
 
   const onPasswordClick = async () => {
@@ -51,9 +55,13 @@ const Settings = () => {
     })
     const updatedUser = await userRaw.json()
 
-    if (updatedUser.errors) {
+    if (updatedUser.errors || typeof updatedUser === 'string') {
       return
     }
+
+    setInfoBox({ open: true, page: 'settings', text: 'Ditt lösenord har uppdaterats!' })
+    currentPassword.current.value = ''
+    newPassword.current.value = ''
   }
 
   return (
@@ -66,7 +74,7 @@ const Settings = () => {
         <label htmlFor="lastName">Efternamn</label>
         <input type="text" id="lastName" className={`shadow-${user.colorTheme}`} value={inputs.lastName} onChange={onInputChange} />
         <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
-        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Uppdatera konto</button>
+        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Uppdatera profil</button>
       </div>
       <div className="password form">
         <h4>Nytt lösenord</h4>
