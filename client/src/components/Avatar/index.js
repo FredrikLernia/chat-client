@@ -8,9 +8,17 @@ const Avatar = props => {
   }
 
   return (
-    <div className={`Avatar${style.color}`}>
-      <span className={style.size}>{props.initials}</span>
-    </div> 
+    <>
+      {props.display === 'none' ?
+        <div className={`Avatar none`}>
+          <span className={style.size}></span>
+        </div>
+        :
+        <div className={`Avatar${style.color}`}>
+          <span className={style.size}>{props.initials}</span>
+        </div>
+      }
+    </>
   )
 }
 
