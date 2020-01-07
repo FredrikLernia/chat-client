@@ -10,7 +10,22 @@ const SignUp = ({ changePage }) => {
 
   const onColorChange = color => setInputs({ ...inputs, colorTheme: color })
 
-  const onSubmit = () => console.log(inputs)
+  const onSubmit = async () => {
+    const userRaw = await fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs)
+    })
+    const createdUser = await userRaw.json()
+
+    if (createdUser.errors || createdUser.errmsg) {
+      return
+    }
+
+    console.log(createdUser)
+  }
 
   return (
     <div className="SignUp">
