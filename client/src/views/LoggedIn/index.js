@@ -11,7 +11,7 @@ const LoggedIn = () => {
   const [tab, setTab] = useState('chats')
   const [friendView, setFriendView] = useState('list')
   const [pageFriendship, setPageFriendship] = useState(null)
-  const [infoBox, setInfoBox] = useState({ open: false, page: '', text: '' })
+  const [infoQueue, setInfoQueue] = useState([])
 
   return (
     <PageContext.Provider value={{
@@ -21,8 +21,8 @@ const LoggedIn = () => {
       setPageFriendship,
       friendView,
       setFriendView,
-      infoBox,
-      setInfoBox
+      infoQueue,
+      setInfoQueue
     }}>
       <InfoBox />
       <Menu />

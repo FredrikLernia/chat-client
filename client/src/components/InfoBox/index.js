@@ -1,22 +1,31 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { MessageSquare, Users, Settings } from 'react-feather'
 import './style.scss'
 
 import PageContext from '../../context/PageContext'
 
 const InfoBox = () => {
-  const { infoBox, setInfoBox } = useContext(PageContext)
-  const { open, page, text } = infoBox
+  const { infoQueue, setInfoQueue } = useContext(PageContext)
 
-  useEffect(() => {
-    setTimeout(() => open && setInfoBox({ ...infoBox, open: false }), 4000)
-  })
+  const [info, setInfo] = useState({ open: false })
+
+  if (infoQueue.length && !info.open) {
+    setTimeout(() => {
+      setInfo({ open: true, page: infoQueue[0].page, text: infoQueue[0].text })
+      const updatedQueue = [...infoQueue]
+      updatedQueue.shift()
+      setInfoQueue(updatedQueue)
+      setTimeout(() => {
+        setInfo({ open: false })
+      }, 4000)
+    }, 300) // 300ms equals the css transition time set
+  }
 
   return (
-    <div className={open ? 'InfoBox open' : 'InfoBox'}>
+    <div className={info.open ? 'InfoBox open' : 'InfoBox'}>
       <div className="content">
-        {page === 'chats' ? <MessageSquare /> : page === 'friends' ? <Users /> : page === 'settings' ? <Settings /> : ''}
-        {text ? text : ''}
+        {info.page === 'chats' ? <MessageSquare /> : info.page === 'friends' ? <Users /> : info.page === 'settings' ? <Settings /> : ''}
+        {info.text ? info.text : ''}
       </div>
     </div>
   )

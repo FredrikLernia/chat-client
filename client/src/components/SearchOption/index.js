@@ -7,7 +7,7 @@ import useSetUser from '../../functions/useSetUser'
 import PageContext from '../../context/PageContext'
 
 const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
-  const { setInfoBox } = useContext(PageContext)
+  const { infoQueue, setInfoQueue } = useContext(PageContext)
 
   const { updateUser } = useSetUser()
 
@@ -21,16 +21,14 @@ const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
     
     if (typeof friendship === 'object') {
       setTimeout(() => {
-        type === 'add' && setInfoBox({
-          open: true,
-          page: 'friends',
-          text: `Vänförfrågan till ${fullName} har skickats!`
-        })
-        type === 'received' && setInfoBox({
-          open: true,
-          page: 'friends',
-          text: `Du och ${fullName} är nu vänner!`
-        })
+        type === 'add' && setInfoQueue([
+          ...infoQueue,
+          { page: 'friends', text: `Vänförfrågan till ${fullName} har skickats!` }
+        ])
+        type === 'received' && setInfoQueue([
+          ...infoQueue,
+          {page: 'friends', text: `Du och ${fullName} är nu vänner!`}
+        ])
         setSearch('')
         setFoundUsers([])
 

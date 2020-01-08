@@ -14,7 +14,7 @@ const FriendRequests = () => {
   const { user } = useContext(UserContext)
   const { received, sent } = user.friendRequests
 
-  const { setInfoBox } = useContext(PageContext)
+  const { infoQueue,setInfoQueue } = useContext(PageContext)
 
   const [toggle, setToggle] = useState('received')
 
@@ -23,11 +23,10 @@ const FriendRequests = () => {
     const friendship = await friendshipRaw.json()
     if (typeof friendship === 'object') {
       setTimeout(() => {
-        setInfoBox({
-          open: true,
-          page: 'friends',
-          text: `Du och ${friendship.user.firstName + ' ' + friendship.user.lastName} är nu vänner!`
-        })
+        setInfoQueue([
+          ...infoQueue,
+          { page: 'friends', text: `Du och ${friendship.user.firstName + ' ' + friendship.user.lastName} är nu vänner!` }
+        ])
 
         setTimeout(() => {
           updateUser()

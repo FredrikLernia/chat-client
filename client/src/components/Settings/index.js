@@ -14,7 +14,7 @@ const Settings = () => {
   const { user } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
 
-  const { setInfoBox } = useContext(PageContext)
+  const { infoQueue, setInfoQueue } = useContext(PageContext)
 
   const [inputs, setInputs] = useState({ username, firstName, lastName, colorTheme })
   const currentPassword = useRef()
@@ -39,7 +39,7 @@ const Settings = () => {
     }
 
     updateUser()
-    setInfoBox({ open: true, page: 'settings', text: 'Din profil har uppdaterats!' })
+    setInfoQueue([...infoQueue, { page: 'settings', text: 'Din profil har uppdaterats!' }])
   }
 
   const onPasswordClick = async () => {
@@ -59,7 +59,7 @@ const Settings = () => {
       return
     }
 
-    setInfoBox({ open: true, page: 'settings', text: 'Ditt lösenord har uppdaterats!' })
+    setInfoQueue([...infoQueue, { page: 'settings', text: 'Ditt lösenord har uppdaterats!' }])
     currentPassword.current.value = ''
     newPassword.current.value = ''
   }
