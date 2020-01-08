@@ -10,7 +10,7 @@ import PageContext from '../../context/PageContext'
 import Avatar from '../Avatar'
 
 const NewMessage = () => {
-  const { update } = useSetUser()
+  const { updateUser } = useSetUser()
 
   const { user } = useContext(UserContext)
   const { pageFriendship } = useContext(PageContext)
@@ -32,7 +32,7 @@ const NewMessage = () => {
         },
         body: JSON.stringify({ friendshipId: pageFriendship, text: text.current.value })
       })
-      update()
+      updateUser()
       text.current.value = ''
     }
   }
