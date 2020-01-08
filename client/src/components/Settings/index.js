@@ -9,7 +9,7 @@ import PageContext from '../../context/PageContext'
 import ColorPicker from '../ColorPicker'
 
 const Settings = () => {
-  const { update } = useSetUser()
+  const { updateUser } = useSetUser()
 
   const { user } = useContext(UserContext)
   const { username, firstName, lastName, colorTheme } = user
@@ -38,7 +38,7 @@ const Settings = () => {
       return
     }
 
-    update()
+    updateUser()
     setInfoBox({ open: true, page: 'settings', text: 'Din profil har uppdaterats!' })
   }
 

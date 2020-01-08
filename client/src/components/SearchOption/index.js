@@ -1,52 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Check, X, Plus } from 'react-feather'
 import './style.scss'
 
 import useSetUser from '../../functions/useSetUser'
 
-const SearchOption = ({ friendship, setSearch, setFoundUsers }) => {
-  const { update } = useSetUser()
+import PageContext from '../../context/PageContext'
+
+const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
+  const { setInfoBox } = useContext(PageContext)
+
+  const { updateUser } = useSetUser()
 
   const { type, id } = friendship
 
   const onButtonClick = async (type, id) => {
-    if (type === 'received') {
-      const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
-      const friendship = await friendshipRaw.json()
-      if (typeof friendship === 'object') {
-        update()
-        setTimeout(() => {
-          setSearch('')
-          setFoundUsers([])
-        }, 500)
-      }
-      return
-    }
+    const friendshipRaw = await fetch(`/api/friendships/${id}`, {
+      method: type === 'received' ? 'PUT' : type === 'sent' ? 'DELETE' : 'POST'
+    })
+    const friendship = await friendshipRaw.json()
+    
+    if (typeof friendship === 'object') {
+      setTimeout(() => {
+        type === 'add' && setInfoBox({
+          open: true,
+          page: 'friends',
+          text: `Vänförfrågan till ${fullName} har skickats!`
+        })
+        type === 'received' && setInfoBox({
+          open: true,
+          page: 'friends',
+          text: `Du och ${fullName} är nu vänner!`
+        })
+        setSearch('')
+        setFoundUsers([])
 
-    if (type === 'sent') {
-      const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
-      const friendship = await friendshipRaw.json()
-      if (typeof friendship === 'object') {
-        update()
         setTimeout(() => {
-          setSearch('')
-          setFoundUsers([])
-        }, 500)
-      }
-      return
-    }
-
-    if (type === 'add') {
-      const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'POST' })
-      const friendship = await friendshipRaw.json()
-      if (typeof friendship === 'object') {
-        update()
-        setTimeout(() => {
-          setSearch('')
-          setFoundUsers([])
-        }, 250)
-      }
-      return
+          updateUser()
+        }, 100)
+      }, 100)
     }
   }
 

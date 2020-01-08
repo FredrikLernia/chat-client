@@ -4,14 +4,17 @@ import './style.scss'
 import useSetUser from '../../functions/useSetUser'
 
 import UserContext from '../../context/UserContext'
+import PageContext from '../../context/PageContext'
 
 import Avatar from '../Avatar'
 
 const FriendRequests = () => {
-  const { update } = useSetUser()
+  const { updateUser } = useSetUser()
 
   const { user } = useContext(UserContext)
   const { received, sent } = user.friendRequests
+
+  const { setInfoBox } = useContext(PageContext)
 
   const [toggle, setToggle] = useState('received')
 
@@ -19,16 +22,26 @@ const FriendRequests = () => {
     const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'PUT' })
     const friendship = await friendshipRaw.json()
     if (typeof friendship === 'object') {
-      update()
+      setTimeout(() => {
+        setInfoBox({
+          open: true,
+          page: 'friends',
+          text: `Du och ${friendship.user.firstName + ' ' + friendship.user.lastName} är nu vänner!`
+        })
+
+        setTimeout(() => {
+          updateUser()
+        }, 100)
+      }, 100)
     }
   }
 
   const onDeleteClick = async id => {
     const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
-      const friendship = await friendshipRaw.json()
-      if (typeof friendship === 'object') {
-        update()
-      }
+    const friendship = await friendshipRaw.json()
+    if (typeof friendship === 'object') {
+      updateUser()
+    }
   }
 
   return (

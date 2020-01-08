@@ -37,7 +37,7 @@ const FriendsSearch = () => {
       return { type: 'friend' }
     }
     if (user.friendRequests.received.some(({ friend }) => friend._id === id)) {
-      return { 
+      return {
         type: 'received',
         id: user.friendRequests.received.find(({ friend }) => friend._id === id)._id
       }
@@ -83,7 +83,12 @@ const FriendsSearch = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <SearchOption friendship={friendship} setSearch={setSearch} setFoundUsers={setFoundUsers} />
+                <SearchOption
+                  friendship={friendship}
+                  fullName={firstName + ' ' + lastName}
+                  setSearch={setSearch}
+                  setFoundUsers={setFoundUsers}
+                />
               </div>
             )
           })}
