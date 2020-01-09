@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+.AvatarMenu {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: default;
+
+  .initials {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 17px 17px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    border: 3px solid $text-light;
+
+    .text {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1;
+      color: $text-light;
+    }
+  }
+}

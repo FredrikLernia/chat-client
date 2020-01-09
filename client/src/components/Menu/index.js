@@ -6,7 +6,7 @@ import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
 import CountCircle from '../CountCircle'
-/* import Avatar from '../Avatar' */
+import AvatarMenu from '../AvatarMenu'
 
 const Menu = () => {
   const { user, setUser } = useContext(UserContext)
@@ -21,9 +21,7 @@ const Menu = () => {
 
   return (
     <nav className={user.colorTheme ? `Menu bg-${user.colorTheme}` : 'Menu'}>
-      {/* <div className="menu-item">
-        <Avatar />
-      </div> */}
+      <AvatarMenu />
       <div className={tab === 'chats' ? 'menu-item active' : 'menu-item'} onClick={() => onMenuClick('chats')}>
         <MessageSquare />
       </div>
