@@ -7,10 +7,19 @@
   background-color: #fff;
   border-bottom: 1px solid $border-color;
 
-  h2 {
+  .OnlineSymbol {
+    margin-left: 15px;
+  }
+
+  .name {
     flex: 1;
-    display: flex;
-    align-items: center;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+    h2 {
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   svg {

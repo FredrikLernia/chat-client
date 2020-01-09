@@ -9,25 +9,38 @@
   padding-left: 15px;
   cursor: pointer;
 
-  .change-chat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
+  .content {
     flex: 1;
-    display: flex;
-    align-items: center;
-    
-    .content {
-      flex: 1;
-      margin-right: 10px;
-      margin-left: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+    .name {
+      display: flex;
+      align-items: center;
 
       h5 {
+        padding: 2px;
+        margin-bottom: 0;
         overflow-x: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
       }
 
-      .username {
-        color: $text-dark-3;
+      .OnlineSymbol {
+        min-width: 7px;
       }
+    }
+
+    .username {
+      padding: 2px;
+      color: $text-dark-3;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
     }
   }
 

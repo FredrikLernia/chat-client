@@ -21,7 +21,10 @@ const ChatListItem = props => {
     <div className={pageFriendship && pageFriendship === _id ? 'ChatListItem active' : 'ChatListItem'} onClick={() => setPageFriendship(props.friendship._id)}>
       <Avatar size="md" color={colorTheme} initials={firstName[0] + lastName[0]} />
       <div className="content">
-        <h5>{firstName + ' ' + lastName}{online ? <OnlineSymbol margin="left" /> : ''}</h5>
+        <div className="header">
+          <h5>{firstName + ' ' + lastName}</h5>
+          {online ? <OnlineSymbol margin="left" /> : ''}
+        </div>
         {message ?
           <>
             <p className="text">{message.text}</p>

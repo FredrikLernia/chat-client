@@ -21,17 +21,18 @@
     overflow-x: hidden;
     white-space: nowrap;
 
-    h5 {
-      margin-bottom: 0;
+    .header {
+      display: flex;
+      align-items: center;
+      h5 {
+        margin-bottom: 0;
+        flex: 1;
+      }
     }
 
     h5, p {
       align-items: center;
       padding: 2px;
-    }
-
-    .text {
-      width: 100%;
       overflow-x: hidden;
       text-overflow: ellipsis;
     }

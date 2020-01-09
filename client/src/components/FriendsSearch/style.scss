@@ -30,6 +30,13 @@ $padding: 15px;
         flex: 1;
         margin-right: 10px;
         margin-left: 10px;
+        overflow-x: hidden;
+        white-space: nowrap;
+
+        h5, .username {
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+        }
 
         .username {
           color: $text-dark-3;

@@ -14,7 +14,10 @@ const ChatHeader = () => {
 
   return (
     <div className="ChatHeader">
-      <h2>{online ? <OnlineSymbol margin="right" /> : ''}{firstName + ' ' + lastName}</h2>
+      {online ? <OnlineSymbol /> : ''}
+      <div className="name">
+      <h2>{firstName + ' ' + lastName}</h2>
+      </div>
       <X onClick={() => setPageFriendship(null)} />
     </div>
   )

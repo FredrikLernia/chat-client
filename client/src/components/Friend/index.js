@@ -12,13 +12,14 @@ const Friend = props => {
   const { username, firstName, lastName, colorTheme, online } = props.friendship.friend
 
   return (
-    <div className="Friend">
-      <div className="change-chat" onClick={() => setPageFriendship(props.friendship._id)}>
-        <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
-        <div className="content">
-          <h5>{lastName + ', ' + firstName}{online ? <OnlineSymbol margin="left" /> : ''}</h5>
-          <p className="username">{username}</p>
+    <div className="Friend" onClick={() => setPageFriendship(props.friendship._id)}>
+      <Avatar size="sm" initials={firstName[0] + lastName[0]} color={colorTheme} />
+      <div className="content">
+        <div className="name">
+          <h5>{lastName + ', ' + firstName}</h5>
+          {online ? <OnlineSymbol margin="left" /> : ''}
         </div>
+        <p className="username">{username}</p>
       </div>
       <button>Ta bort</button>
     </div>
