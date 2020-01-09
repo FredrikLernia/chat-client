@@ -24,9 +24,13 @@
     .header {
       display: flex;
       align-items: center;
+
       h5 {
         margin-bottom: 0;
-        flex: 1;
+      }
+
+      .OnlineSymbol {
+        min-width: 7px;
       }
     }
 
