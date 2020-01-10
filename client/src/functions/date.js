@@ -31,6 +31,9 @@ export const formatDate = compareDate => {
   if (compareDay === twoDaysAgo) {
     return 'i förrgår'
   }
+  if ((Date.now() - new Date(compareDate).getTime()) > 86400000 * 182) {
+    return new Date(compareDate).toLocaleDateString('sv-SE', { year: 'numeric', month: 'numeric', day: 'numeric' })
+  }
 
   return new Date(compareDate).toLocaleDateString('sv-SE', { weekday: 'short', month: 'short', day: 'numeric' })
 }
