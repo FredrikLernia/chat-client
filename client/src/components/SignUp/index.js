@@ -4,7 +4,7 @@ import './style.scss'
 import ColorPicker from '../ColorPicker'
 import Button from '../Button'
 
-const SignUp = ({ changePage }) => {
+const SignUp = ({ changePage, setCreated }) => {
   const [inputs, setInputs] = useState({ username: '', firstName: '', lastName: '', colorTheme: 'blue', password: '' })
 
   const onInputChange = e => setInputs({ ...inputs, [e.target.id]: e.target.value })
@@ -25,7 +25,8 @@ const SignUp = ({ changePage }) => {
       return
     }
 
-    console.log(createdUser)
+    setCreated(true)
+    changePage('login')
   }
 
   return (

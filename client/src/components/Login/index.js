@@ -5,7 +5,7 @@ import UserContext from '../../context/UserContext'
 
 import Button from '../Button'
 
-const Login = ({ changePage }) => {
+const Login = ({ changePage, created, setCreated }) => {
   const { setUser } = useContext(UserContext)
 
   const [inputs, setInputs] = useState({ username: '', password: '' })
@@ -14,7 +14,7 @@ const Login = ({ changePage }) => {
 
   const onLoginSubmit = async e => {
     e.preventDefault()
-    
+
     const loggedInRaw = await fetch('/api/login', {
       method: 'POST',
       headers: {
@@ -32,16 +32,25 @@ const Login = ({ changePage }) => {
     }
   }
 
+  if (created) {
+    setTimeout(() => setCreated(false), 3000)
+  }
+
   return (
-    <form className="Login" onSubmit={onLoginSubmit}>
-      <h1>Logga in</h1>
-      <label htmlFor="username">Användarnamn</label>
-      <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
-      <label htmlFor="password">Lösenord</label>
-      <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <Button type="submit" color="blue">Logga in</Button>
-      <p>Har du inget konto? <span onClick={() => changePage('sign-up')}>Registrera här!</span></p>
-    </form>
+    <div className="Login">
+      <div className={`account-created${created ? ' display' : ''}`}>
+        Ditt konto har skapats!
+      </div>
+      <form onSubmit={onLoginSubmit}>
+        <h1>Logga in</h1>
+        <label htmlFor="username">Användarnamn</label>
+        <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
+        <label htmlFor="password">Lösenord</label>
+        <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
+        <Button type="submit" color="blue">Logga in</Button>
+        <p>Har du inget konto? <span onClick={() => changePage('sign-up')}>Registrera här!</span></p>
+      </form>
+    </div>
   )
 }
 
