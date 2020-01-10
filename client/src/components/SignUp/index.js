@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './style.scss'
 
 import ColorPicker from '../ColorPicker'
+import Button from '../Button'
 
 const SignUp = ({ changePage }) => {
   const [inputs, setInputs] = useState({ username: '', firstName: '', lastName: '', colorTheme: 'blue', password: '' })
@@ -39,7 +40,7 @@ const SignUp = ({ changePage }) => {
       <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
       <label htmlFor="password">Lösenord</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <button className="update-account bg-blue" onClick={onSubmit}>Registrera</button>
+      <Button color="blue" onClick={onSubmit}>Registrera</Button>
       <p>Har du redan ett konto? <span onClick={() => changePage('login')}>Logga in</span></p>
     </div>
   )

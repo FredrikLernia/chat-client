@@ -44,14 +44,11 @@
       }
     }
 
-    button {
+    .Button {
       font-weight: normal;
-      &.confirm {
-        background-color: $success;
-      }
+
       &.delete {
         margin-left: 5px;
-        background-color: #ddd;
         color: $text-dark-1;
       }
     }

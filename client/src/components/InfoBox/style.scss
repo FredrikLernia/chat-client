@@ -8,8 +8,9 @@
   justify-content: center;
   width: calc(#{$app-width} - 1px);
   height: 60px;
-  background-color: $app-green;
+  background-color: rgba($app-green, 0.95);
   color: $text-light;
+  z-index: 10;
   transition: top 300ms ease-out;
 
   &.open {

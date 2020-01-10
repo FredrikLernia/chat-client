@@ -3,6 +3,8 @@ import './style.scss'
 
 import UserContext from '../../context/UserContext'
 
+import Button from '../Button'
+
 const Login = ({ changePage }) => {
   const { setUser } = useContext(UserContext)
 
@@ -37,7 +39,7 @@ const Login = ({ changePage }) => {
       <input type="text" id="username" value={inputs.username} onChange={onInputChange} />
       <label htmlFor="password">Lösenord</label>
       <input type="password" id="password" value={inputs.password} onChange={onInputChange} />
-      <button type="submit" className="bg-blue">Logga in</button>
+      <Button type="submit" color="blue">Logga in</Button>
       <p>Har du inget konto? <span onClick={() => changePage('sign-up')}>Registrera här!</span></p>
     </form>
   )

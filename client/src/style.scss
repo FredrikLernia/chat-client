@@ -131,8 +131,16 @@ button {
   font-family: $font-family;
 }
 
+.bg-app-green {
+  background-color: $app-green;
+}
+
 .bg-white {
   background-color: #fff;
+}
+
+.bg-gray {
+  background-color: $gray;
 }
 
 .bg-yellow {
@@ -161,4 +169,12 @@ button {
 
 .bg-purple {
   background-color: $purple;
+}
+
+.bg-success {
+  background-color: $success;
+}
+
+.bg-danger {
+  background-color: $danger;
 }

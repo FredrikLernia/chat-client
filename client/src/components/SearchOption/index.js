@@ -6,6 +6,8 @@ import useSetUser from '../../functions/useSetUser'
 
 import PageContext from '../../context/PageContext'
 
+import Button from '../Button'
+
 const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
   const { infoQueue, setInfoQueue } = useContext(PageContext)
 
@@ -44,12 +46,12 @@ const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
       {friendship.type === 'friend' ?
         'Vänner'
         : friendship.type === 'received' ?
-          <button className="confirm" onClick={() => onButtonClick(type, id)}><Check />Bekräfta</button>
+          <Button color="success" onClick={() => onButtonClick(type, id)}><Check />Bekräfta</Button>
           : friendship.type === 'sent' ?
-            <button className="delete" onClick={() => onButtonClick(type, id)}><X />Avbryt</button>
+            <Button color="gray" className="delete" onClick={() => onButtonClick(type, id)}><X />Avbryt</Button>
             : friendship.type === 'self' ?
               ''
-              : <button className="add" onClick={() => onButtonClick(type, id)}><Plus />Lägg till</button>
+              : <Button color="success" onClick={() => onButtonClick(type, id)}><Plus />Lägg till</Button>
       }
     </div>
   )

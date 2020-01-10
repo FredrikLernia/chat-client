@@ -8,6 +8,7 @@ import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
 import Avatar from '../Avatar'
+import Button from '../Button'
 
 const NewMessage = () => {
   const { updateUser } = useSetUser()
@@ -44,7 +45,7 @@ const NewMessage = () => {
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
           <textarea rows="4" placeholder="Skriv ett meddelande..." ref={text} />
-          <button type="submit">Skicka<Send /></button>
+          <Button type="submit" color="app-green" fullWidth="false">Skicka<Send /></Button>
         </form>
       </div>
     </>

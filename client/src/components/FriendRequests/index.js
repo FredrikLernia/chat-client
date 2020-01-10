@@ -7,6 +7,7 @@ import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
 import Avatar from '../Avatar'
+import Button from '../Button'
 
 const FriendRequests = () => {
   const { updateUser } = useSetUser()
@@ -71,8 +72,8 @@ const FriendRequests = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <button className="confirm" onClick={() => onConfirmClick(_id)}>Bekräfta</button>
-                <button className="delete" onClick={() => onDeleteClick(_id)}>Ta bort</button>
+                <Button color="success" fullWidth="false" onClick={() => onConfirmClick(_id)}>Bekräfta</Button>
+                <Button color="gray" className="delete" fullWidth="false" onClick={() => onDeleteClick(_id)}>Ta bort</Button>
               </div>
             )
           })
@@ -88,7 +89,7 @@ const FriendRequests = () => {
                   <h5>{firstName + ' ' + lastName}</h5>
                   <p className="username">{username}</p>
                 </div>
-                <button className="delete" onClick={() => onDeleteClick(_id)}>Avbryt</button>
+                <Button color="gray" className="delete" fullWidth="false" onClick={() => onDeleteClick(_id)}>Avbryt</Button>
               </div>
             )
           })

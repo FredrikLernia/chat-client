@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+$border-radius: 5px;
+
+.Button {
+  padding: 0;
+  color: $text-light;
+  font-weight: bold;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+
+  & > div {
+    padding: 8px;
+    width: 100%;
+    border-radius: $border-radius;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &.w-100 {
+    width: 100%;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

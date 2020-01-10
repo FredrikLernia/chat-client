@@ -68,21 +68,24 @@
       }
     }
 
-    button {
-      display: flex;
-      align-items: center;
+    .Button {
       margin-left: 12px;
-      padding-top: 7px;
-      padding-bottom: 7px;
-      padding-right: 12px;
-      padding-left: 12px;
       border-radius: 20px;
-      background-color: $app-green;
 
-      svg {
-        margin-left: 5px;
-        width: 14px;
-        height: 14px;
+      & > div {
+        display: flex;
+        align-items: center;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-right: 12px;
+        padding-left: 12px;
+        border-radius: 20px;
+
+        svg {
+          margin-left: 5px;
+          width: 14px;
+          height: 14px;
+        }
       }
     }
   }

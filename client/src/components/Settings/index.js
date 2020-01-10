@@ -6,6 +6,7 @@ import useSetUser from '../../functions/useSetUser'
 import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
+import Button from '../Button'
 import ColorPicker from '../ColorPicker'
 
 const Settings = () => {
@@ -74,16 +75,16 @@ const Settings = () => {
         <label htmlFor="lastName">Efternamn</label>
         <input type="text" id="lastName" className={`shadow-${user.colorTheme}`} value={inputs.lastName} onChange={onInputChange} />
         <ColorPicker color={inputs.colorTheme} changeColor={onColorChange} />
-        <button className={`update-account bg-${colorTheme}`} onClick={onUpdateClick}>Uppdatera profil</button>
+        <Button color={colorTheme} onClick={onUpdateClick}>Uppdatera profil</Button>
       </div>
       <div className="password form">
         <h4>Nytt lösenord</h4>
         <input type="password" ref={currentPassword} className={`shadow-${user.colorTheme}`} placeholder="Nuvarande lösenord" />
         <input type="password" ref={newPassword} className={`shadow-${user.colorTheme}`} placeholder="Nytt lösenord" />
-        <button className={`bg-${colorTheme}`} onClick={onPasswordClick}>Ändra lösenord</button>
+        <Button color={colorTheme} onClick={onPasswordClick}>Ändra lösenord</Button>
       </div>
       <div className="delete form">
-        <button>Ta bort konto</button>
+        <Button color="danger">Ta bort konto</Button>
       </div>
     </div>
   )

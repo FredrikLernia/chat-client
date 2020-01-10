@@ -5,6 +5,7 @@ import PageContext from '../../context/PageContext'
 
 import Avatar from '../Avatar'
 import OnlineSymbol from '../OnlineSymbol'
+import Button from '../Button'
 
 const Friend = props => {
   const { setPageFriendship } = useContext(PageContext)
@@ -21,7 +22,7 @@ const Friend = props => {
         </div>
         <p className="username">{username}</p>
       </div>
-      <button>Ta bort</button>
+      <Button color="gray" fullWidth="false">Ta bort</Button>
     </div>
   )
 }
