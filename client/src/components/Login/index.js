@@ -38,9 +38,11 @@ const Login = ({ changePage, created, setCreated }) => {
 
   return (
     <div className="Login">
-      <div className={`account-created${created ? ' display' : ''}`}>
+      {created ?
+      <div className="account-created">
         Ditt konto har skapats!
       </div>
+      : ''}
       <form onSubmit={onLoginSubmit}>
         <h1>Logga in</h1>
         <label htmlFor="username">Användarnamn</label>

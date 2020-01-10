@@ -7,14 +7,9 @@
   width: calc(3.9 * #{$col-size});
 
   .account-created {
-    display: none;
     position: absolute;
     top: -10px;
     color: $app-green;
-
-    &.display {
-      display: block;
-    }
   }
 
   p {
