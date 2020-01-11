@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import { Send } from 'react-feather'
 import './style.scss'
 
@@ -17,12 +17,18 @@ const NewMessage = () => {
   const { pageFriendship } = useContext(PageContext)
   const text = useRef()
 
+  useEffect(() => {
+    text.current.value = ''
+  }, [pageFriendship])
+
   const { firstName, lastName, colorTheme } = user
 
   const { friend } = user.friendships.find(friendship => friendship._id === pageFriendship)
 
   const onSubmit = async e => {
-    e.preventDefault()
+    if (e) {
+      e.preventDefault()
+    }
 
     // SSE
     if (text.current.value.length > 0) {
@@ -38,13 +44,25 @@ const NewMessage = () => {
     }
   }
 
+  const submitOnEnter = e => {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      e.preventDefault()
+      onSubmit()
+    }
+  }
+
   return (
     <>
       <div className="typing">{friend.firstName} skriver<span>.</span><span>.</span><span>.</span></div>
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
-          <textarea rows="4" placeholder="Skriv ett meddelande..." ref={text} />
+          <textarea
+            rows="4"
+            placeholder="Skriv ett meddelande..."
+            ref={text}
+            onKeyDown={submitOnEnter}
+          />
           <Button type="submit" color="app-green" fullWidth="false">Skicka<Send /></Button>
         </form>
       </div>
