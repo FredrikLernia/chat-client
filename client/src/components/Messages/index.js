@@ -25,22 +25,43 @@ const Messages = () => {
   return (
     <div className="Messages" ref={window}>
       {messages.map((message, i) => {
-        const time = formatDate(message.date)
+        const sent = message.from === user._id
+        const date = formatDate(message.date)
+
+        const prevMessage = i && messages[i - 1]
+        const nextMessage = messages.length > (i + 1) && messages[i + 1]
+
+        let separator = ''
+        if (!isSameDay(prevMessage.date, message.date)) {
+          separator = <div className="separator">{date}</div>
+        }
+
+        let placement
+        if (
+          (!isSameDay(prevMessage.date, message.date) && !isSameDay(message.date, nextMessage.date)) ||
+          (prevMessage.from !== message.from && message.from !== nextMessage.from)
+        ) {
+          placement = 'alone'
+        }
+        else if (prevMessage.from !== message.from || separator) {
+          placement = 'first'
+        }
+        else if (message.from !== nextMessage.from || !isSameDay(message.date, nextMessage.date)) {
+          placement = 'last'
+        }
+        else {
+          placement = 'middle'
+        }
 
         return (
           <div key={i}>
-            {!i ? <div className="separator">{time}</div>
-              : i > 0 && !isSameDay(message.date, messages[i - 1].date) ?
-                <div className="separator">{time}</div>
-                : ''}
+            {separator}
             <Message
-              userId={user._id}
-              userInitials={userInitials}
-              friendInitials={friendInitials}
-              userColor={user.colorTheme}
-              friendColor={friend.colorTheme}
+              sent={sent}
               message={message}
-              nextMessageFrom={messages.length > (i + 1) ? messages[i + 1].from : ''}
+              placement={placement}
+              initials={sent ? userInitials : friendInitials}
+              color={sent ? user.colorTheme : friend.colorTheme}
               scrollToBottom={scrollToBottom}
             />
           </div>

@@ -60,7 +60,7 @@ const Settings = () => {
       return
     }
 
-    setInfoQueue([...infoQueue, { page: 'settings', text: 'Ditt lösenord har uppdaterats!' }])
+    setInfoQueue([...infoQueue, { page: 'settings', text: 'Ditt lösenord har ändrats!' }])
     currentPassword.current.value = ''
     newPassword.current.value = ''
   }

@@ -1,66 +1,92 @@
 @import '../../variables.scss';
 
+$border-radius-small: 5px;
+
 .Message {
+  position: relative;
   display: flex;
   align-items: flex-end;
-  padding-top: 10px;
-  padding-right: 25px;
-  padding-bottom: 10px;
-  padding-left: 25px;
-  width: 100%;
+  margin-top: 1px;
+  padding: 0 25px;
 
+  .text {
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.16);
+    cursor: default;
+
+    &:hover {
+      + .time {
+        opacity: 1;
+      }
+    }
+  }
+
+  .time {
+    align-self: center;
+    font-size: 10px;
+    color: $text-dark-3;
+    opacity: 0;
+  }
+
+  &.first, &.alone {
+    margin-top: 20px;
+  }
+  
   &.left {
-    .margin {
-      margin-right: 60px;
+    margin-right: 80px;
+
+    .text {
+      background-color: #fff;
     }
 
-    .content {
-      margin-left: 12px;
+    &.first {
+      .text {
+        border-bottom-left-radius: $border-radius-small;
+      }
+    }
 
-      .time {
-        margin-left: 10px;
+    &.middle {
+      .text {
+        border-top-left-radius: $border-radius-small;
+        border-bottom-left-radius: $border-radius-small;
+      }
+    }
+  
+    &.last {
+      .text {
+        border-top-left-radius: $border-radius-small;
       }
     }
   }
 
   &.right {
-    .margin {
-      margin-left: 60px;
-      flex: 1;
-    }
+    flex-flow: row-reverse;
+    margin-left: 80px;
 
-    .content {
-      margin-right: 12px;
-
-      .time {
-        margin-right: 10px;
-        text-align: right;
-      }
-    }
-  }
-
-  .content {
     .text {
-      display: flex;
-      align-items: center;
-      padding-top: 10px;
-      padding-right: 15px;
-      padding-bottom: 10px;
-      padding-left: 15px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 0 14px rgba(0, 0, 0, 0.16);
+      background-color: $app-green;
+      color: $text-light;
+    }
 
-      &.sent {
-        background-color: $app-green;
-        color: $text-light;
+    &.first {
+      .text {
+        border-bottom-right-radius: $border-radius-small;
       }
     }
 
-    .time {
-      margin-bottom: 7px;
-      font-size: 10px;
-      color: $text-dark-3;
+    &.middle {
+      .text {
+        border-top-right-radius: $border-radius-small;
+        border-bottom-right-radius: $border-radius-small;
+      }
+    }
+  
+    &.last {
+      .text {
+        border-top-right-radius: $border-radius-small;
+      }
     }
   }
 }
