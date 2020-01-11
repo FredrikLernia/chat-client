@@ -63,6 +63,9 @@
       width: 100%;
       background-color: #fff;
       border: 1px solid $border-color;
+      max-height: 230px;
+      overflow-y: scroll;
+      box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
   
       .color {
         margin: 15px;

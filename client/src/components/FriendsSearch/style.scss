@@ -16,6 +16,9 @@ $padding: 15px;
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid $border-color;
     z-index: 1;
+    max-height: 280px;
+    overflow-y: scroll;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 
     .found-friend {
       display: flex;
