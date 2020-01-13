@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import { isSameDay, formatDate } from '../../functions/date'
 import './style.scss'
 
@@ -21,6 +21,10 @@ const Messages = () => {
 
   const userInitials = user.firstName[0] + user.lastName[0]
   const friendInitials = friend.firstName[0] + friend.lastName[0]
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [pageFriendship])
 
   return (
     <div className="Messages" ref={window}>
@@ -62,7 +66,6 @@ const Messages = () => {
               placement={placement}
               initials={sent ? userInitials : friendInitials}
               color={sent ? user.colorTheme : friend.colorTheme}
-              scrollToBottom={scrollToBottom}
             />
           </div>
         )

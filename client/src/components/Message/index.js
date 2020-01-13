@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { formatTime } from '../../functions/date'
 import './style.scss'
 
 import Avatar from '../Avatar'
 
 const Message = props => {
-  const { sent, message, placement, initials, color, scrollToBottom } = props
+  const { sent, message, placement, initials, color } = props
   const { date, text } = message
-
-  useEffect(() => {
-    scrollToBottom()
-  }, [scrollToBottom])
 
   const time = formatTime(date)
 
