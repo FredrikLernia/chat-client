@@ -24,7 +24,7 @@ const Messages = () => {
 
   useEffect(() => {
     scrollToBottom()
-  }, [pageFriendship])
+  }, [pageFriendship, /* messages */])
 
   return (
     <div className="Messages" ref={window}>
@@ -42,8 +42,8 @@ const Messages = () => {
 
         let placement
         if (
-          (!isSameDay(prevMessage.date, message.date) && !isSameDay(message.date, nextMessage.date)) ||
-          (prevMessage.from !== message.from && message.from !== nextMessage.from)
+          (prevMessage.from !== message.from || !isSameDay(prevMessage.date, message.date)) &&
+          (message.from !== nextMessage.from || !isSameDay(message.date, nextMessage.date))
         ) {
           placement = 'alone'
         }
