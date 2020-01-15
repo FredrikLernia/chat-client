@@ -2,8 +2,6 @@ import React, { useContext, useRef, useEffect } from 'react'
 import { Send } from 'react-feather'
 import './style.scss'
 
-import useSetUser from '../../functions/useSetUser'
-
 import UserContext from '../../context/UserContext'
 import PageContext from '../../context/PageContext'
 
@@ -11,7 +9,6 @@ import Avatar from '../Avatar'
 import Button from '../Button'
 
 const NewMessage = () => {
-  const { updateUser } = useSetUser()
 
   const { user } = useContext(UserContext)
   const { pageFriendship } = useContext(PageContext)
@@ -39,7 +36,6 @@ const NewMessage = () => {
         },
         body: JSON.stringify({ friendshipId: pageFriendship, text: text.current.value })
       })
-      updateUser()
       text.current.value = ''
     }
   }
