@@ -9,6 +9,7 @@ import LoggedOut from './views/LoggedOut'
 
 const App = () => {
   const [user, setUser] = useState()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getLoggedIn = async () => {
@@ -16,6 +17,7 @@ const App = () => {
       const loggedIn = await loggedInRaw.json()
 
       typeof loggedIn === 'object' && setUser(loggedIn)
+      setLoading(false)
     }
 
     getLoggedIn()
@@ -34,7 +36,7 @@ const App = () => {
   return (
     <div className="App">
       <UserContext.Provider value={{ setUser }}>
-        <LoggedOut />
+        {loading ? '' : <LoggedOut />}
       </UserContext.Provider>
     </div>
   )
