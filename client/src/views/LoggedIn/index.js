@@ -25,6 +25,15 @@ const LoggedIn = () => {
     sse.listen('message', () => {
       updateUser()
     })
+
+    sse.listen('new-request', ({ firstName, lastName }) => {
+      setInfoQueue([
+        ...infoQueue,
+        { page: 'friends', text: `Du har fått en ny vänförfrågan från ${firstName + ' ' + lastName}` }
+      ])
+      updateUser()
+    })
+
     sseListenerAdded = true
   }
 
