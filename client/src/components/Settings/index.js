@@ -83,9 +83,9 @@ const Settings = () => {
         <input type="password" ref={newPassword} className={`shadow-${user.colorTheme}`} placeholder="Nytt lösenord" />
         <Button color={colorTheme} onClick={onPasswordClick}>Ändra lösenord</Button>
       </div>
-      <div className="delete form">
+      {/* <div className="delete form">
         <Button color="danger">Ta bort konto</Button>
-      </div>
+      </div> */}
     </div>
   )
 }
