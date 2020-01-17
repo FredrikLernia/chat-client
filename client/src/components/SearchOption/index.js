@@ -21,7 +21,7 @@ const SearchOption = ({ friendship, fullName, setSearch, setFoundUsers }) => {
     })
     const friendship = await friendshipRaw.json()
     
-    if (typeof friendship === 'object') {
+    if (typeof friendship === 'object' && type !== 'DELETE') {
       setTimeout(() => {
         type === 'add' && setInfoQueue([
           ...infoQueue,

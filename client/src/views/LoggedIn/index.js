@@ -42,6 +42,10 @@ const LoggedIn = () => {
       updateUser()
     })
 
+    sse.listen('delete-request', data => {
+      updateUser()
+    })
+
     sseListenerAdded = true
   }
 

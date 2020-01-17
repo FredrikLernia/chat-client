@@ -37,11 +37,7 @@ const FriendRequests = () => {
   }
 
   const onDeleteClick = async id => {
-    const friendshipRaw = await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
-    const friendship = await friendshipRaw.json()
-    if (typeof friendship === 'object') {
-      updateUser()
-    }
+    await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
   }
 
   return (
