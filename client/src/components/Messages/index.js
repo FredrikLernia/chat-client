@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import { isSameDay, formatDate } from '../../functions/date'
 import './style.scss'
 
@@ -19,12 +19,26 @@ const Messages = () => {
 
   const { friend, messages } = user.friendships.find(friendship => friendship._id === pageFriendship)
 
+  const [currentFriendship, setCurrentFriendship] = useState(undefined)
+  const [messagesLength, setMessagesLength] = useState(messages.length)
+
   const userInitials = user.firstName[0] + user.lastName[0]
   const friendInitials = friend.firstName[0] + friend.lastName[0]
 
   useEffect(() => {
-    scrollToBottom()
-  }, [pageFriendship, /* messages */])
+    if (pageFriendship !== currentFriendship) {
+      scrollToBottom()
+      setCurrentFriendship(pageFriendship)
+      setMessagesLength(messages.length)
+    }
+  }, [pageFriendship, currentFriendship, messages])
+
+  useEffect(() => {
+    if (messages.length !== messagesLength) {
+      scrollToBottom()
+      setMessagesLength(messages.length)
+    }
+  }, [messages, messagesLength])
 
   return (
     <div className="Messages" ref={window}>
