@@ -29,7 +29,15 @@ const LoggedIn = () => {
     sse.listen('new-request', ({ firstName, lastName }) => {
       setInfoQueue([
         ...infoQueue,
-        { page: 'friends', text: `Du har fått en ny vänförfrågan från ${firstName + ' ' + lastName}` }
+        { page: 'friends', text: `Du har fått en ny vänförfrågan från ${firstName + ' ' + lastName}!` }
+      ])
+      updateUser()
+    })
+
+    sse.listen('accepted-request', ({ firstName, lastName }) => {
+      setInfoQueue([
+        ...infoQueue,
+        { page: 'friends', text: `${firstName + ' ' + lastName} har accepterat din vänförfrågan!` }
       ])
       updateUser()
     })
