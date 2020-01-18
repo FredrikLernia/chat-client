@@ -9,8 +9,9 @@ import Friends from '../Friends'
 import Settings from '../Settings'
 
 const Tab = () => {
-  const { tab } = useContext(PageContext)
-
+  const { page } = useContext(PageContext)
+  const { tab } = page
+  
   return (
     <div className="Tab">
       <TabHeader />

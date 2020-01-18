@@ -7,7 +7,8 @@ import PageContext from '../../context/PageContext'
 import CountCircle from '../CountCircle'
 
 const TabHeader = () => {
-  const { tab, friendView, setFriendView } = useContext(PageContext)
+  const { page, setPage } = useContext(PageContext)
+  const { tab, friendView } = page
 
   const translate = {
     chats: 'Chattar',
@@ -24,9 +25,9 @@ const TabHeader = () => {
         friendView === 'list' ?
           <>
             <CountCircle location="tabHeader" />
-            <PlusCircle onClick={() => setFriendView('new')} />
+            <PlusCircle onClick={() => setPage({ ...page, friendView: 'new' })} />
           </>
-          : <List onClick={() => setFriendView('list')} />
+          : <List onClick={() => setPage({ ...page, friendView: 'list' })} />
         : ''}
     </div>
   )

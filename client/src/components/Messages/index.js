@@ -9,7 +9,7 @@ import Message from '../Message'
 
 const Messages = () => {
   const { user } = useContext(UserContext)
-  const { pageFriendship } = useContext(PageContext)
+  const { page } = useContext(PageContext)
   const window = useRef()
 
   const scrollToBottom = () => {
@@ -17,7 +17,7 @@ const Messages = () => {
     window.current.scrollTo(0, scrollY)
   }
 
-  const { friend, messages } = user.friendships.find(friendship => friendship._id === pageFriendship)
+  const { friend, messages } = user.friendships.find(friendship => friendship._id === page.friendship)
 
   const [currentFriendship, setCurrentFriendship] = useState(undefined)
   const [messagesLength, setMessagesLength] = useState(messages.length)
@@ -26,12 +26,12 @@ const Messages = () => {
   const friendInitials = friend.firstName[0] + friend.lastName[0]
 
   useEffect(() => {
-    if (pageFriendship !== currentFriendship) {
+    if (page.friendship !== currentFriendship) {
       scrollToBottom()
-      setCurrentFriendship(pageFriendship)
+      setCurrentFriendship(page.friendship)
       setMessagesLength(messages.length)
     }
-  }, [pageFriendship, currentFriendship, messages])
+  }, [page.friendship, currentFriendship, messages])
 
   useEffect(() => {
     if (messages.length !== messagesLength) {

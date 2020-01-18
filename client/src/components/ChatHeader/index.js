@@ -9,8 +9,9 @@ import OnlineSymbol from '../OnlineSymbol'
 
 const ChatHeader = () => {
   const { user } = useContext(UserContext)
-  const { pageFriendship, setPageFriendship } = useContext(PageContext)
-  const { online, firstName, lastName } = user.friendships.find(friendship => friendship._id === pageFriendship).friend
+  const { page, setPage } = useContext(PageContext)
+
+  const { online, firstName, lastName } = user.friendships.find(friendship => friendship._id === page.friendship).friend
 
   return (
     <div className="ChatHeader">
@@ -18,7 +19,7 @@ const ChatHeader = () => {
       <div className="name">
       <h2>{firstName + ' ' + lastName}</h2>
       </div>
-      <X onClick={() => setPageFriendship(null)} />
+      <X onClick={() => setPage({ ...page, friendship: null })} />
     </div>
   )
 }

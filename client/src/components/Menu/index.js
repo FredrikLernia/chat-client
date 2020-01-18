@@ -10,9 +10,11 @@ import AvatarMenu from '../AvatarMenu'
 
 const Menu = () => {
   const { user, setUser } = useContext(UserContext)
-  const { tab, setTab } = useContext(PageContext)
+  const { page, setPage } = useContext(PageContext)
 
-  const onMenuClick = tab => setTab(tab)
+  const { tab } = page
+
+  const onMenuClick = tab => setPage({ ...page, tab })
 
   const logout = async () => {
     await fetch('/api/login', { method: 'DELETE' })

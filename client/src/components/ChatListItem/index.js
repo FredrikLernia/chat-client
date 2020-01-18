@@ -8,7 +8,7 @@ import Avatar from '../Avatar'
 import OnlineSymbol from '../OnlineSymbol'
 
 const ChatListItem = props => {
-  const { pageFriendship, setPageFriendship } = useContext(PageContext)
+  const { page, setPage } = useContext(PageContext)
 
   const { _id, friend, messages } = props.friendship
   const { firstName, lastName, colorTheme, online } = friend
@@ -18,7 +18,7 @@ const ChatListItem = props => {
   const time = formatTime(message.date)
 
   return (
-    <div className={pageFriendship && pageFriendship === _id ? 'ChatListItem active' : 'ChatListItem'} onClick={() => setPageFriendship(props.friendship._id)}>
+    <div className={page.friendship && page.friendship === _id ? 'ChatListItem active' : 'ChatListItem'} onClick={() => setPage({ ...page, friendship: props.friendship._id })}>
       <Avatar size="md" color={colorTheme} initials={firstName[0] + lastName[0]} />
       <div className="content">
         <div className="header">

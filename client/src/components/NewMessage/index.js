@@ -11,30 +11,29 @@ import Button from '../Button'
 const NewMessage = () => {
 
   const { user } = useContext(UserContext)
-  const { pageFriendship } = useContext(PageContext)
+  const { page } = useContext(PageContext)
   const text = useRef()
 
   useEffect(() => {
     text.current.value = ''
-  }, [pageFriendship])
+  }, [page.friendship])
 
   const { firstName, lastName, colorTheme } = user
 
-  const { friend } = user.friendships.find(friendship => friendship._id === pageFriendship)
+  const { friend } = user.friendships.find(friendship => friendship._id === page.friendship)
 
   const onSubmit = async e => {
     if (e) {
       e.preventDefault()
     }
 
-    // SSE
     if (text.current.value.length > 0) {
       await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ friendshipId: pageFriendship, text: text.current.value })
+        body: JSON.stringify({ friendshipId: page.friendship, text: text.current.value })
       })
       text.current.value = ''
     }

@@ -7,11 +7,11 @@ import ChatWindow from '../ChatWindow'
 import EmptyChat from '../EmptyChat'
 
 const Main = () => {
-  const { pageFriendship } = useContext(PageContext)
+  const { page } = useContext(PageContext)
 
   return (
     <div className="Main">
-      {pageFriendship ? <ChatWindow /> : <EmptyChat />}
+      {page.friendship ? <ChatWindow /> : <EmptyChat />}
     </div>
   )
 }

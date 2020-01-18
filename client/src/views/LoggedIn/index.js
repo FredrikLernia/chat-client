@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SSE from 'easy-server-sent-events/sse'
 
 import useSetUser from '../../functions/useSetUser'
@@ -16,10 +16,33 @@ let sseListenerAdded = false
 const LoggedIn = () => {
   const { updateUser } = useSetUser()
 
-  const [tab, setTab] = useState('chats')
-  const [friendView, setFriendView] = useState('list')
-  const [pageFriendship, setPageFriendship] = useState(null)
+  const [page, setPage] = useState()
+
   const [infoQueue, setInfoQueue] = useState([])
+
+  useEffect(() => {
+    const getSessionPage = async () => {
+      const sessionPageRaw = await fetch('/api/page')
+      const sessionPage = await sessionPageRaw.json()
+      setPage(sessionPage)
+    }
+
+    getSessionPage()
+  }, [])
+
+  useEffect(() => {
+    const updateSessionPage = async () => {
+      await fetch('/api/page', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(page)
+      })
+    }
+
+    updateSessionPage()
+  }, [page])
 
   if (!sseListenerAdded) {
     sse.listen('message', () => {
@@ -49,23 +72,23 @@ const LoggedIn = () => {
     sseListenerAdded = true
   }
 
-  return (
-    <PageContext.Provider value={{
-      tab,
-      setTab,
-      pageFriendship,
-      setPageFriendship,
-      friendView,
-      setFriendView,
-      infoQueue,
-      setInfoQueue
-    }}>
-      <InfoBox />
-      <Menu />
-      <Tab />
-      <Main />
-    </PageContext.Provider>
-  )
+  if (page) {
+    return (
+      <PageContext.Provider value={{
+        page,
+        setPage,
+        infoQueue,
+        setInfoQueue
+      }}>
+        <InfoBox />
+        <Menu />
+        <Tab />
+        <Main />
+      </PageContext.Provider>
+    )
+  }
+
+  return <div />
 }
 
 export default LoggedIn

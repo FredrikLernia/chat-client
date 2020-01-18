@@ -8,7 +8,7 @@ import Friend from '../Friend/index.js'
 
 const FriendsList = () => {
   const { user } = useContext(UserContext)
-  const { setFriendView } = useContext(PageContext)
+  const { page, setPage } = useContext(PageContext)
 
   let { friendships } = user
   friendships = [...friendships].sort((a, b) => {
@@ -30,7 +30,7 @@ const FriendsList = () => {
           return <Friend key={i} friendship={friendship} />
         })
         : <p className="no-friends">
-          Du har inga vänner än. Klicka <span onClick={() => setFriendView('new')}>här</span> för att hitta nya!
+          Du har inga vänner än. Klicka <span onClick={() => setPage({ ...page, friendView: 'new' })}>här</span> för att hitta nya!
         </p>}
     </div>
   )

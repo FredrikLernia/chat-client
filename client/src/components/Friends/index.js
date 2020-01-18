@@ -6,8 +6,9 @@ import NewFriends from '../NewFriends'
 import FriendsList from '../FriendsList'
 
 const Friends = () => {
-  const { friendView } = useContext(PageContext)
-
+  const { page } = useContext(PageContext)
+  const { friendView } = page
+  
   if (friendView === 'list') {
     return (
       <div className="Friends">
