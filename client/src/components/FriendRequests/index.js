@@ -38,6 +38,7 @@ const FriendRequests = () => {
 
   const onDeleteClick = async id => {
     await fetch(`/api/friendships/${id}`, { method: 'DELETE' })
+    updateUser()
   }
 
   return (

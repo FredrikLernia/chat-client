@@ -20,7 +20,7 @@ const NewMessage = () => {
 
   const { firstName, lastName, colorTheme } = user
 
-  const { friend } = user.friendships.find(friendship => friendship._id === page.friendship)
+  // const { friend } = user.friendships.find(friendship => friendship._id === page.friendship)
 
   const onSubmit = async e => {
     if (e) {
@@ -48,7 +48,7 @@ const NewMessage = () => {
 
   return (
     <>
-      <div className="typing">{friend.firstName} skriver<span>.</span><span>.</span><span>.</span></div>
+      {/* <div className="typing">{friend.firstName} skriver<span>.</span><span>.</span><span>.</span></div> */}
       <div className="NewMessage">
         <Avatar size="lg" initials={firstName[0] + lastName[0]} color={colorTheme} />
         <form onSubmit={onSubmit}>
